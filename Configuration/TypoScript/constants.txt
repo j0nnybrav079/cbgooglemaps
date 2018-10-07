@@ -1,0 +1,110 @@
+plugin.tx_cbgooglemaps {
+	# customsubcategory=1mapprovider=LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xml:1mapprovider
+	# customsubcategory=2googlemaps=LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xml:2googlemaps
+	# customsubcategory=3openstreetmap=LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xml:3openstreetmap
+	# customsubcategory=4mapbox=LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xml:4mapbox
+	# customsubcategory=5mapsetting=LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xml:5mapsetting
+
+	# cat=plugin.tx_cbgooglemaps/1mapprovider/1000; type=options[Google,MapBox,OpenStreetMap]; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.mapProvider
+	mapProvider 		   = Google
+
+	osmapi{
+		// cat=plugin.tx_cbgooglemaps/3openstreetmap/1000; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.js
+		js 				   = Resources/Public/JavaScript/leaflet/leaflet.js
+		// cat=plugin.tx_cbgooglemaps/3openstreetmap/1020; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.css
+		css 			   = Resources/Public/JavaScript/leaflet/leaflet.css
+		tileLayer {
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1030; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.tileLayer.template
+			template 	   = https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1040; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.tileLayer.attribution
+			attribution    = &copy; <a href="https://osm.org/copyright">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>
+		}
+		icon{
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1050; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.iconUrl
+			iconUrl        =
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1060; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.iconWidth
+			iconWidth      =
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1070; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.iconHeight
+			iconHeight     =
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1080; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.iconAnchorX
+			iconAnchorX    =
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1090; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.iconAnchorY
+			iconAnchorY    =
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1100; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.popupAnchorX
+			popupAnchorX   = 0
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1110; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.popupAnchorY
+			popupAnchorY   = 0
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1120; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.tooltipAnchorX
+			tooltipAnchorX = 0
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1130; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.tooltipAnchorY
+			tooltipAnchorY = 0
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1140; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.shadowUri
+			shadowUrl      =
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1150; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.shadowWidth
+			shadowWidth    =
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1160; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.shadowHeight
+			shadowHeight   =
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1170; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.shadowAnchorX
+			shadowAnchorX  =
+			// cat=plugin.tx_cbgooglemaps/3openstreetmap/1180; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.osmapi.icon.shadowAnchorY
+			shadowAnchorY  =
+		}
+	}
+	mapboxapi{
+		// cat=plugin.tx_cbgooglemaps/4mapbox/1200; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.mapboxapi.js
+		js 				   = Resources/Public/JavaScript/mapbox/mapbox-gl.js
+		// cat=plugin.tx_cbgooglemaps/4mapbox/1210; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.mapboxapi.css
+		css 			   = Resources/Public/JavaScript/mapbox/mapbox-gl.css
+		// cat=plugin.tx_cbgooglemaps/4mapbox/1220; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.mapboxapi.accessToken
+		accessToken =
+
+		icon{
+			// cat=plugin.tx_cbgooglemaps/4mapbox/1250; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.mapboxapi.icon.iconUrl
+			iconUrl        =
+			// cat=plugin.tx_cbgooglemaps/4mapbox/1260; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.mapboxapi.icon.iconWidth
+			iconWidth      =
+			// cat=plugin.tx_cbgooglemaps/4mapbox/1270; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.mapboxapi.icon.iconHeight
+			iconHeight     =
+			// cat=plugin.tx_cbgooglemaps/4mapbox/1280; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.mapboxapi.icon.iconOffsetX
+			iconOffsetX    =
+			// cat=plugin.tx_cbgooglemaps/4mapbox/1290; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.mapboxapi.icon.iconOffsetY
+			iconOffsetY    =
+		}
+	}
+	googleapi {
+		# cat=plugin.tx_cbgooglemaps/2googlemaps/1300; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.googleapi.uri
+		uri 			   = https://maps.googleapis.com/maps/api/js
+		# cat=plugin.tx_cbgooglemaps/2googlemaps/1310; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.googleapi.key
+		key 			   =
+	}
+
+	options {
+		# cat=plugin.tx_cbgooglemaps/5mapsetting/1500; type=boolean; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.options.useScrollwheel
+		useScrollwheel 	   = true
+	}
+	# cat=plugin.tx_cbgooglemaps/5mapsetting/1510; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.latitude
+	latitude 			   =
+	# cat=plugin.tx_cbgooglemaps/5mapsetting/1520; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.longitude
+	longitude 			   =
+	# cat=plugin.tx_cbgooglemaps/5mapsetting/1530; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.infoText
+	infoText 			   =
+	# cat=plugin.tx_cbgooglemaps/5mapsetting/1540; type=boolean; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.infoTextOpen
+	infoTextOpen 		   = false
+	display {
+		# cat=plugin.tx_cbgooglemaps/5mapsetting/1550; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.display.width
+		width 			   =
+		# cat=plugin.tx_cbgooglemaps/5mapsetting/1560; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.display.height
+		height 			   = 250
+		# cat=plugin.tx_cbgooglemaps/5mapsetting/1580; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.display.zoom
+		zoom 			   = 15
+		# cat=plugin.tx_cbgooglemaps/2googlemaps/1570; type=options[HYBRID,ROADMAP,SATELLITE,TERRAIN]; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.display.maptype
+		mapType 		   = HYBRID
+		# cat=plugin.tx_cbgooglemaps/2googlemaps/1590; type=options[DEFAULT,SMALL,ZOOM_PAN,ANDROID]; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.display.mapcontrol
+		mapControl 		   = DEFAULT
+		# cat=plugin.tx_cbgooglemaps/2googlemaps/1600; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.display.icon
+		icon 			   =
+		# cat=plugin.tx_cbgooglemaps/5mapsetting/1610; type=string; label=LLL:EXT:cbgooglemaps/Resources/Private/language/locallang.xml:const.display.styling
+		styling 		   =
+	}
+}
+  

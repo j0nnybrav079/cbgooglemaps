@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" datatype="plaintext" original="messages" date="2018-07-01T12:00:00Z" product-name="cbgooglemaps">
+		<header/>
+		<body>
+			<trans-unit id="pluginWizardTitle">
+				<source>Quick maps</source>
+			</trans-unit>
+			<trans-unit id="pluginWizardDescription">
+				<source>Add a GoogleMap, MapBox or OpenStreetMap to the current page in a quick and simple way</source>
+			</trans-unit>
+			<trans-unit id="label.street">
+				<source>Street</source>
+			</trans-unit>
+			<trans-unit id="label.zip">
+				<source>zip</source>
+			</trans-unit>
+			<trans-unit id="label.city">
+				<source>city</source>
+			</trans-unit>
+			<trans-unit id="label.latitude">
+				<source>latitude</source>
+			</trans-unit>
+			<trans-unit id="label.longitude">
+				<source>longitude</source>
+			</trans-unit>
+			<trans-unit id="label.country">
+				<source>country</source>
+			</trans-unit>
+			<trans-unit id="label.map">
+				<source>map</source>
+			</trans-unit>
+			<trans-unit id="label.buttonGeocoding">
+				<source>fetch coordinates from address</source>
+			</trans-unit>
+			<trans-unit id="label.description">
+				<source>description of map and position</source>
+			</trans-unit>
+			<trans-unit id="label.autoOpen">
+				<source>open map description on startup</source>
+			</trans-unit>
+			<trans-unit id="label.sheetLocation">
+				<source>location</source>
+			</trans-unit>
+			<trans-unit id="label.sheetDisplay">
+				<source>display properties</source>
+			</trans-unit>
+			<trans-unit id="label.mapWidth">
+				<source>map width, in pixel (only visible to the frontend view!)</source>
+			</trans-unit>
+			<trans-unit id="label.mapHeight">
+				<source>map height, in pixel (only visible to the frontend view!)</source>
+			</trans-unit>
+			<trans-unit id="label.mapType">
+				<source>map type (only GoogleMaps and MapBox)</source>
+			</trans-unit>
+			<trans-unit id="label.mapTypeRoadmap">
+				<source>GoogleMaps: roadmap</source>
+			</trans-unit>
+			<trans-unit id="label.mapTypeTerrain">
+				<source>GoogleMaps: terrain</source>
+			</trans-unit>
+			<trans-unit id="label.mapTypeHybrid">
+				<source>GoogleMaps: hybrid</source>
+			</trans-unit>
+			<trans-unit id="label.mapTypeSatellite">
+				<source>GoogleMaps: satellite</source>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Basic">
+				<source>MapBox: default simple</source>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Streets">
+				<source>MapBox: streets</source>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Bright">
+				<source>MapBox: bright</source>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Light">
+				<source>MapBox: light</source>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Dark">
+				<source>MapBox: dark</source>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Satellite">
+				<source>MapBox: satellite</source>
+			</trans-unit>
+			<trans-unit id="label.scaleLevel">
+				<source>card zoom level</source>
+			</trans-unit>
+			<trans-unit id="label.navigationControl">
+				<source>navigation controls (only GoogleMaps)</source>
+			</trans-unit>
+			<trans-unit id="label.navigationControlDefault">
+				<source>GoogleMaps: default</source>
+			</trans-unit>
+			<trans-unit id="label.navigationControlSmall">
+				<source>GoogleMaps: small controls</source>
+			</trans-unit>
+			<trans-unit id="label.navigationControlZoomPan">
+				<source>GoogleMaps: bigger controls</source>
+			</trans-unit>
+			<trans-unit id="label.navigationControlAndroid">
+				<source>GoogleMaps: small controls (used in Android)</source>
+			</trans-unit>
+			<trans-unit id="1mapprovider">
+				<source>Map provider</source>
+			</trans-unit>
+			<trans-unit id="2googlemaps">
+				<source>Google maps</source>
+			</trans-unit>
+			<trans-unit id="3openstreetmap">
+				<source>OpenStreetMap</source>
+			</trans-unit>
+			<trans-unit id="4mapbox">
+				<source>MapBox</source>
+			</trans-unit>
+			<trans-unit id="5mapsetting">
+				<source>Map settings</source>
+			</trans-unit>
+			<trans-unit id="const.mapProvider">
+				<source>Map Provider: Select desired map provider to be used for map drawing (GoogleMaps and MapBox requires a key)</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.js">
+				<source>OpenStreetMap JS library: Set URL to openstreetmap javascript library</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.css">
+				<source>OpenStreetMap Styles: Set URL to openstreetmap stylessheet</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.tileLayer.template">
+				<source>Tile layer template: Set template string to the tile layer</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.tileLayer.attribution">
+				<source>Tile layer attribution: Set attribution string to the tile layer</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.iconUrl">
+				<source>OpenStreetMap icon: Set URL to openstreetmap icon (f.e. fileadmin/images/osmMarker.png)</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.iconWidth">
+				<source>OpenStreetMap icon width: Set icon width in pixel</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.iconHeight">
+				<source>OpenStreetMap icon height: Set icon height in pixel</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.iconAnchorX">
+				<source>OpenStreetMap icon anchor X: Horizontal position (x) for marker pixel in icon (in pixel)</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.iconAnchorY">
+				<source>OpenStreetMap icon anchor Y: Vertical position (y) for marker pixel in icon (in pixel)</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.popupAnchorX">
+				<source>OpenStreetMap popup anchor X: Horizontal position (x) for popup arrow position (in pixel)</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.popupAnchorY">
+				<source>OpenStreetMap popup anchor Y: Vertical position (y) for popup arrow position (in pixel)</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.tooltipAnchorX">
+				<source>OpenStreetMap tooltip anchor X: Horizontal position (x) for tooltip in pixel relative to the icon</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.tooltipAnchorY">
+				<source>OpenStreetMap tooltip anchor Y: Vertical position (y) for tooltip in pixel relative to the icon</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.shadowUrl">
+				<source>OpenStreetMap shadow url: Set URL to openstreetmap icon shadow (f.e. fileadmin/images/osmMarkerShadow.png)</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.shadowWidth">
+				<source>OpenStreetMap shadow width: Set icon shadow width in pixel</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.shadowHeight">
+				<source>OpenStreetMap shadow height: Set icon shadow width in pixel</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.shadowAnchorX">
+				<source>OpenStreetMap shadow anchor X: Horizontal position (x) for marker pixel in icon shadow</source>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.shadowAnchorY">
+				<source>OpenStreetMap shadow anchor Y: Vertical position (y) for marker pixel in icon shadow</source>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.js">
+				<source>MapBox JS library: Set URL to mapbox javascript library</source>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.css">
+				<source>MapBox Styles: Set URL to mapbox stylessheet</source>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.accessToken">
+				<source>MapBox access token: Set access token of mapbox, see: https://www.mapbox.com/account/access-tokens to request a token</source>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.icon.iconUrl">
+				<source>MapBox icon: Set URL to MapBox icon (f.e. fileadmin/images/osmMarker.png)</source>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.icon.iconWidth">
+				<source>MapBox icon width: Set icon width in pixel</source>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.icon.iconHeight">
+				<source>MapBox icon height: Set icon height in pixel</source>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.icon.iconOffsetX">
+				<source>MapBox icon offset x: Set icon horizontal offset in pixel</source>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.icon.iconOffsetY">
+				<source>MapBox icon offset y: Set icon vertical offset in pixel</source>
+			</trans-unit>
+			<trans-unit id="const.googleapi.url">
+				<source>GoogleMaps JS library: Set URL to googlemaps javascript library</source>
+			</trans-unit>
+			<trans-unit id="const.googleapi.key">
+				<source>GoogleMaps api key: Set googlemaps api key see: https://developers.google.com/maps/documentation/javascript/ to request an api key</source>
+			</trans-unit>
+			<trans-unit id="const.options.useScrollwheel">
+				<source>Activte zooming by mousewheel: Use scrollwheel for zooming in maps?</source>
+			</trans-unit>
+			<trans-unit id="const.latitude">
+				<source>Default latitude: Set latitude as float value, if you would like to set some default coordinates</source>
+			</trans-unit>
+			<trans-unit id="const.longitude">
+				<source>Default longitude: Set longitude as float value, if you would like to set some default coordinates</source>
+			</trans-unit>
+			<trans-unit id="const.infoText">
+				<source>Default info text: Set info text to be shown in the text box to the pin as default</source>
+			</trans-unit>
+			<trans-unit id="const.infoTextOpen">
+				<source>Open info text box: Should info text box be opened at start?</source>
+			</trans-unit>
+			<trans-unit id="const.display.width">
+				<source>Default map width: Set default width of map (in pixel), if empty 100% width will be used and map will be resonsive</source>
+			</trans-unit>
+			<trans-unit id="const.display.height">
+				<source>Default map height: Set default height of map (in pixel)</source>
+			</trans-unit>
+			<trans-unit id="const.display.zoom">
+				<source>Default zoom level: Set default map zoom level (default = 15)</source>
+			</trans-unit>
+			<trans-unit id="const.display.maptype">
+				<source>Default map type: Set default map type</source>
+			</trans-unit>
+			<trans-unit id="const.display.mapcontrol">
+				<source>Default map controls: Select map controls which should be shown in the map</source>
+			</trans-unit>
+			<trans-unit id="const.display.icon">
+				<source>Map icon: Alternate map icon (only GoogleMaps): path: relative to document root (e.g. "fileadmin/images/googlePin.png"), the targeting point resides to the center bottom of the graphic file.</source>
+			</trans-unit>
+			<trans-unit id="const.display.styling">
+				<source>Alternate map styling (only GoogleMaps): path: relative to document root (e.g. "fileadmin/images/googleStyles.txt").</source>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>

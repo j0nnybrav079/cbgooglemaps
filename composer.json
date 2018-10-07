@@ -1,0 +1,50 @@
+{
+  "name": "brinkert/cbgooglemaps",
+  "type": "typo3-cms-extension",
+  "description": "formerly \"Quick Google Maps\" - Include maps by GoogleMaps, MapBox or OpenStreetMap to your frontend, in a quick and easy way - as content element, by typoscript or even with fluid cObject.",
+  "keywords": [
+    "TYPO3",
+    "extension",
+    "google-map"
+  ],
+  "homepage": "https://docs.typo3.org/typo3cms/extensions/cbgooglemaps/",
+  "authors": [
+    {
+      "name": "Christian Brinkert",
+      "role": "Developer",
+      "homepage": "https://docs.typo3.org/typo3cms/extensions/cbgooglemaps/"
+    }
+  ],
+  "license": ["GPL-2.0-or-later"],
+  "require": {
+    "typo3/cms-core": "^8.7.13|| >=9.5.0 <9.6.0"
+  },
+  "autoload": {
+    "psr-4": {
+      "Brinkert\\Cbgooglemaps\\": "Classes"
+    }
+  },
+  "replace": {
+    "cbgooglemaps": "self.version",
+    "typo3-ter/cbgooglemaps": "self.version"
+  },
+  "config": {
+    "vendor-dir": ".Build/vendor",
+    "bin-dir": ".Build/bin"
+  },
+  "scripts": {
+    "post-autoload-dump": [
+      "mkdir -p .Build/Web/typo3conf/ext/",
+      "[ -L .Build/Web/typo3conf/ext/cbgooglemaps ] || ln -snvf ../../../../. .Build/Web/typo3conf/ext/cbgooglemaps"
+    ]
+  },
+  "extra": {
+    "branch-alias": {
+      "dev-master": "6.x-dev"
+    },
+    "typo3/cms": {
+      "cms-package-dir": "{$vendor-dir}/typo3/cms",
+      "web-dir": ".Build/Web"
+    }
+  }
+}

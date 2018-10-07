@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<xliff version="1.0">
+	<file source-language="en" target-language="de" datatype="plaintext" original="messages" date="2018-07-01T12:00:00Z" product-name="cbgooglemaps">
+		<header/>
+		<body>
+			<trans-unit id="pluginWizardTitle">
+				<source>Quick maps</source>
+				<target state="translated">Quick maps</target>
+			</trans-unit>
+			<trans-unit id="pluginWizardDescription">
+				<source>Add a  GoogleMap, MapBox or OpenStreetMap to the current page in a quick and simple way</source>
+				<target state="translated">Füge eine GoogleMap, MapBox or OpenStreetMap zur aktuellen Seite auf einfach und schnelle Weise hinzu</target>
+			</trans-unit>
+			<trans-unit id="label.street">
+				<source>Street</source>
+				<target state="translated">Straße</target>
+			</trans-unit>
+			<trans-unit id="label.zip">
+				<source>zip</source>
+				<target state="translated">Postleitzahl</target>
+			</trans-unit>
+			<trans-unit id="label.city">
+				<source>city</source>
+				<target state="translated">Stadt</target>
+			</trans-unit>
+			<trans-unit id="label.latitude">
+				<source>latitude</source>
+				<target state="translated">Breitengrad</target>
+			</trans-unit>
+			<trans-unit id="label.longitude">
+				<source>longitude</source>
+				<target state="translated">Längengrad</target>
+			</trans-unit>
+			<trans-unit id="label.country">
+				<source>country</source>
+				<target state="translated">Land</target>
+			</trans-unit>
+			<trans-unit id="label.map">
+				<source>map</source>
+				<target state="translated">Karte</target>
+			</trans-unit>
+			<trans-unit id="label.buttonGeocoding">
+				<source>fetch coordinates from address</source>
+				<target state="translated">Ermittle Koordinaten aus obiger Adresse</target>
+			</trans-unit>
+			<trans-unit id="label.description">
+				<source>description of map and position</source>
+				<target state="translated">Karten- und Ortsbeschreibung</target>
+			</trans-unit>
+			<trans-unit id="label.autoOpen">
+				<source>open map description on startup</source>
+				<target state="translated">Öffne Informationsblase (Karten- und Ortsbeschreibung) automatisch</target>
+			</trans-unit>
+			<trans-unit id="label.sheetLocation">
+				<source>location</source>
+				<target state="translated">Ortsangabe /-definition</target>
+			</trans-unit>
+			<trans-unit id="label.sheetDisplay">
+				<source>display properties</source>
+				<target state="translated">Kartendarstellung</target>
+			</trans-unit>
+			<trans-unit id="label.mapWidth">
+				<source>map width, in pixel (only visible to the frontend view!)</source>
+				<target state="translated">Breite der Karte, in Pixel (nur im Frontend wirksam!)</target>
+			</trans-unit>
+			<trans-unit id="label.mapHeight">
+				<source>map height, in pixel (only visible to the frontend view!)</source>
+				<target state="translated">Höhe der Karte, in Pixel (nur im Frontend wirksam!)</target>
+			</trans-unit>
+			<trans-unit id="label.mapType">
+				<source>map type (only GoogleMaps)</source>
+				<target state="translated">Art der Kartendarstellung (nur GoogleMaps und MapBox)</target>
+			</trans-unit>
+			<trans-unit id="label.mapTypeRoadmap">
+				<source>GoogleMaps: roadmap</source>
+				<target state="translated">GoogleMaps: Straßenkarte</target>
+			</trans-unit>
+			<trans-unit id="label.mapTypeTerrain">
+				<source>GoogleMaps: terrain</source>
+				<target state="translated">GoogleMaps: Geländeansicht</target>
+			</trans-unit>
+			<trans-unit id="label.mapTypeHybrid">
+				<source>GoogleMaps: hybrid</source>
+				<target state="translated">GoogleMaps: Gemischte Darstellung</target>
+			</trans-unit>
+			<trans-unit id="label.mapTypeSatellite">
+				<source>GoogleMaps: satellite</source>
+				<target state="translated">GoogleMaps: Satellitenansicht</target>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Basic">
+				<source>MapBox: default simple</source>
+				<target state="translated">MapBox: Standard einfach</target>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Streets">
+				<source>MapBox: streets</source>
+				<target state="translated">MapBox: Straßenkarte</target>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Bright">
+				<source>MapBox: bright</source>
+				<target state="translated">MapBox: strahlend</target>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Light">
+				<source>MapBox: light</source>
+				<target state="translated">MapBox: hell</target>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Dark">
+				<source>MapBox: dark</source>
+				<target state="translated">MapBox: dunkel</target>
+			</trans-unit>
+			<trans-unit id="label.mapTypeMapbox.Satellite">
+				<source>MapBox: satellite</source>
+				<target state="translated">MapBox: Satellitenansicht</target>
+			</trans-unit>
+			<trans-unit id="label.scaleLevel">
+				<source>card zoom level</source>
+				<target state="translated">Karten Zoom-Stufe</target>
+			</trans-unit>
+			<trans-unit id="label.navigationControl">
+				<source>navigation controls (only GoogleMaps)</source>
+				<target state="translated">Steuerelemete zur Navigation (nur GoogleMaps)</target>
+			</trans-unit>
+			<trans-unit id="label.navigationControlDefault">
+				<source>GoogleMaps: default</source>
+				<target state="translated">GoogleMaps: Standard</target>
+			</trans-unit>
+			<trans-unit id="label.navigationControlSmall">
+				<source>GoogleMaps: small controls</source>
+				<target state="translated">GoogleMaps: kleine Steuerelemente</target>
+			</trans-unit>
+			<trans-unit id="label.navigationControlZoomPan">
+				<source>GoogleMaps: bigger controls</source>
+				<target state="translated">GoogleMaps: größere Steuerlemente</target>
+			</trans-unit>
+			<trans-unit id="label.navigationControlAndroid">
+				<source>GoogleMaps: small controls (used in Android)</source>
+				<target state="translated">GoogleMaps: Minimale Steuerelemente (ähnlich zur Android-Darstellung)</target>
+			</trans-unit>
+			<trans-unit id="1mapprovider">
+				<source>Map provider</source>
+				<target state="translated">Kartenanbieter</target>
+			</trans-unit>
+			<trans-unit id="2googlemaps">
+				<source>Google maps</source>
+				<target state="translated">GoogleMaps</target>
+			</trans-unit>
+			<trans-unit id="3openstreetmap">
+				<source>OpenStreetMap</source>
+				<target state="translated">OpenStreetMap</target>
+			</trans-unit>
+			<trans-unit id="4mapbox">
+				<source>MapBox</source>
+				<target state="translated">MapBox</target>
+			</trans-unit>
+			<trans-unit id="5mapsetting">
+				<source>Map settings</source>
+				<target state="translated">Karten Einstellungen</target>
+			</trans-unit>
+			<trans-unit id="const.mapProvider">
+				<source>Map Provider: Select desired map provider to be used for map drawing (GoogleMaps and MapBox requires a key)</source>
+				<target state="translated">Kartenanbieter: Wähle den gewünschten Kartenanbieter zur Darstellung der Karte aus (GoogleMaps und MapBox benötigen zwingend einen Nutzungs-Schlüssel/Api-Key)</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.js">
+				<source>OpenStreetMap JS library: Set URL to openstreetmap javascript library</source>
+				<target state="translated">OpenStreetMap JS Bibliothek: Gebe den Pfad zur Einbindung der OpenStreetMap JavaScript Bibliothek an</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.css">
+				<source>OpenStreetMap Styles: Set URL to openstreetmap stylessheet</source>
+				<target state="translated">OpenStreetMap Stile: Gebe den Pfad zur Einbindung der OpenStreetMap Stile an</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.tileLayer.template">
+				<source>Tile layer template: Set template string to the tile layer</source>
+				<target state="translated">Kachelebenen Tempate: Gebe das Kachelebenen-Template an (Tile layer template)</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.tileLayer.attribution">
+				<source>Tile layer attribution: Set attribution string to the tile layer</source>
+				<target state="translated">Kachelebenen Quellverweis: Gebe den einzublendenen Quellverweis zur Karte ein (Tile layer attribution)</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.iconUrl">
+				<source>OpenStreetMap icon: Set URL to openstreetmap icon (f.e. fileadmin/images/osmMarker.png)</source>
+				<target state="translated">OpenStreetMap Ikon: Gebe ein optionales eigenes Ikon zur Positionsanzeige ein (bspw. fileadmin/images/osmMarker.png)</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.iconWidth">
+				<source>OpenStreetMap icon width: Set icon width in pixel</source>
+				<target state="translated">OpenStreetMap Ikon Breite: Gebe die Ikonbreite in Pixel an</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.iconHeight">
+				<source>OpenStreetMap icon height: Set icon height in pixel</source>
+				<target state="translated">OpenStreetMap Ikon Höhe: Gebe die Ikonhöhe in Pixel an</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.iconAnchorX">
+				<source>OpenStreetMap icon anchor X: Horizontal position (x) for marker pixel in icon (in pixel)</source>
+				<target state="translated">OpenStreetMap Ikon Anker X: Horizontale Position (x) für den Markerpixel im Ikon (in Pixel)</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.iconAnchorY">
+				<source>OpenStreetMap icon anchor Y: Vertical position (y) for marker pixel in icon (in pixel)</source>
+				<target state="translated">OpenStreetMap Ikon Anker Y: VertiKale position (y) für den Markerpixel im Ikon (in Pixel)</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.popupAnchorX">
+				<source>OpenStreetMap popup anchor X: Horizontal position (x) for popup arrow position (in pixel)</source>
+				<target state="translated">OpenStreetMap Popup Anker X: Horizontale Position (x) für das Popup (in Pixel)</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.popupAnchorY">
+				<source>OpenStreetMap popup anchor Y: Vertical position (y) for popup arrow position (in pixel)</source>
+				<target state="translated">OpenStreetMap Popup Anker Y: Vertikale Position (y) für das Popup (in pixel)</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.tooltipAnchorX">
+				<source>OpenStreetMap tooltip anchor X: Horizontal position (x) for tooltip in pixel relative to the icon</source>
+				<target state="translated">OpenStreetMap Tooltip Anker X: Horizontale Position (x) für den Tooltip in pixel</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.tooltipAnchorY">
+				<source>OpenStreetMap tooltip anchor Y: Vertical position (y) for tooltip in pixel relative to the icon</source>
+				<target state="translated">OpenStreetMap Tooltip Anker Y: Vertikale Position (y) für den Tooltip in pixel</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.shadowUrl">
+				<source>OpenStreetMap shadow url: Set URL to openstreetmap icon shadow (f.e. fileadmin/images/osmMarkerShadow.png)</source>
+				<target state="translated">OpenStreetMap Ikonschatten Url: Gebe optional die URL zum OpenStreetMap Ikonschatten an (f.e. fileadmin/images/osmMarkerShadow.png)</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.shadowWidth">
+				<source>OpenStreetMap shadow width: Set icon shadow width in pixel</source>
+				<target state="translated">OpenStreetMap Ikonschatten Breite: Gebe die Breite des Ikonschattens in Pixel an</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.shadowHeight">
+				<source>OpenStreetMap shadow height: Set icon shadow width in pixel</source>
+				<target state="translated">OpenStreetMap Ikonschatten Höhe: Gebe die Höhe des Ikonschattens in Pixel an</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.shadowAnchorX">
+				<source>OpenStreetMap shadow anchor X: Horizontal position (x) for marker pixel in icon shadow</source>
+				<target state="translated">OpenStreetMap Ikonschatten Anker X: Horizontale Position (x) für den Markerpixel des Ikonschattens</target>
+			</trans-unit>
+			<trans-unit id="const.osmapi.icon.shadowAnchorY">
+				<source>OpenStreetMap shadow anchor Y: Vertical position (y) for marker pixel in icon shadow</source>
+				<target state="translated">OpenStreetMap Ikonschatten Anker Y: Vertikale Position (y) für den Markerpixel des Ikonschattens</target>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.js">
+				<source>MapBox JS library: Set URL to mapbox javascript library</source>
+				<target state="translated">MapBox JS Bibliothek: Gebe die URL zur MapBox JavaScript Bibliothek an</target>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.css">
+				<source>MapBox Styles: Set URL to mapbox stylessheet</source>
+				<target state="translated">MapBox Stile: Gebe die URL zum MapBox Stilset an</target>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.accessToken">
+				<source>MapBox access token: Set access token of mapbox, see: https://www.mapbox.com/account/access-tokens to request a token</source>
+				<target state="translated">MapBox Zugriffstoken: Geben den Zugriffstoken für MapBox an, see: https://www.mapbox.com/account/access-tokens zur Anforderung eines Tokens</target>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.icon.iconUrl">
+				<source>OpenStreetMap icon: Set URL to mapbox icon (f.e. fileadmin/images/osmMarker.png)</source>
+				<target state="translated">MapBox Ikon: Gebe ein optionales eigenes Ikon zur Positionsanzeige ein (bspw. fileadmin/images/osmMarker.png)</target>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.icon.iconWidth">
+				<source>OpenStreetMap icon width: Set icon width in pixel</source>
+				<target state="translated">MapBox Ikon Breite: Gebe die Ikonbreite in Pixel an</target>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.icon.iconHeight">
+				<source>OpenStreetMap icon height: Set icon height in pixel</source>
+				<target state="translated">MapBox Ikon Höhe: Gebe die Ikonhöhe in Pixel an</target>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.icon.iconOffsetX">
+				<source>MapBox icon offset x: Set icon horizontal offset in pixel</source>
+				<target state="translated">Mapbox Ikon-Offset X: Gebe den horizontalen Offset in Pixel an</target>
+			</trans-unit>
+			<trans-unit id="const.mapboxapi.icon.iconOffsetY">
+				<source>MapBox icon offset y: Set icon vertical offset in pixel</source>
+				<target state="translated">Mapbox Ikon-Offset Y: Gebe den vertikalen Offset in Pixel an</target>
+			</trans-unit>
+			<trans-unit id="const.googleapi.url">
+				<source>GoogleMaps JS library: Set URL to googlemaps javascript library</source>
+				<target state="translated">GoogleMaps JS library: Gebe die URL zur GoogleMaps JavaScript Bibliothek an</target>
+			</trans-unit>
+			<trans-unit id="const.googleapi.key">
+				<source>GoogleMaps api key: Set googlemaps api key see: https://developers.google.com/maps/documentation/javascript/ to request an api key</source>
+				<target state="translated">GoogleMaps Api Schlüssel: Gebe den GoogleMaps Api Schlüssel an, see: https://developers.google.com/maps/documentation/javascript/ zur Anforderung eines Api Schlüssels</target>
+			</trans-unit>
+			<trans-unit id="const.options.useScrollwheel">
+				<source>Activte zooming by mousewheel: Use scrollwheel for zooming in maps?</source>
+				<target state="translated">Vergrößerung per Mausrad: Aktiviere die Vergrößerung per Mausrad in Karten?</target>
+			</trans-unit>
+			<trans-unit id="const.latitude">
+				<source>Default latitude: Set latitude as float value, if you would like to set some default coordinates</source>
+				<target state="translated">Standard Breitengrad: Gebe, sofern gewünscht, einen Standardbreitengrade an</target>
+			</trans-unit>
+			<trans-unit id="const.longitude">
+				<source>Default longitude: Set longitude as float value, if you would like to set some default coordinates</source>
+				<target state="translated">Standard Längengrad: Gebe, sofern gewünscht, einen Standardlängengrad an</target>
+			</trans-unit>
+			<trans-unit id="const.infoText">
+				<source>Default info text: Set info text to be shown in the text box to the pin as default</source>
+				<target state="translated">Standardtext: Gebe einen Standardtext zur Infobox der Kartenposition an</target>
+			</trans-unit>
+			<trans-unit id="const.infoTextOpen">
+				<source>Open info text box: Should info text box be opened at start?</source>
+				<target state="translated">Standardtext anzeigen?: Soll der Standardtext direkt zur Kartendarstellung angezeigt werden?</target>
+			</trans-unit>
+			<trans-unit id="const.display.width">
+				<source>Default map width: Set default width of map (in pixel), if empty 100% width will be used and map will be resonsive</source>
+				<target state="translated">Kartenbreite: Gebe die gewünschte Breite der Karte in Pixel an - wird keine Breite angegeben, so wird 100% Breite angenommen und die Karte verhält sich responsiv.</target>
+			</trans-unit>
+			<trans-unit id="const.display.height">
+				<source>Default map height: Set default height of map (in pixel)</source>
+				<target state="translated">Kartenhöhe: Gebe die gewünschte Höhe der Karte in Pixel an</target>
+			</trans-unit>
+			<trans-unit id="const.display.zoom">
+				<source>Default zoom level: Set default map zoom level (default = 15)</source>
+				<target state="translated">Standardvergrößerung: Gebe die Standardvergrößerungsstufe zur Karte an</target>
+			</trans-unit>
+			<trans-unit id="const.display.maptype">
+				<source>Default map type: Set default map type</source>
+				<target state="translated">Kartentyp: Gebe den Typ der Kartendarstellung an</target>
+			</trans-unit>
+			<trans-unit id="const.display.mapcontrol">
+				<source>Default map controls: Select map controls which should be shown in the map</source>
+				<target state="translated">Steuerungselemente: Gebe an, welche Kartensteuerelemente dargestellt werden sollen</target>
+			</trans-unit>
+			<trans-unit id="const.display.icon">
+				<source>Map icon: Alternate map icon (only GoogleMaps): path: relative to document root (e.g. "fileadmin/images/googlePin.png"), the targeting point resides to the center bottom of the graphic file.</source>
+				<target state="translated">GoogleMaps Ikon: Gebe ein optionales eigenes Ikon zur Positionsanzeige ein (bspw. fileadmin/images/osmMarker.png)</target>
+			</trans-unit>
+			<trans-unit id="const.display.styling">
+				<source>Alternate map styling (only GoogleMaps): path: relative to document root (e.g. "fileadmin/images/googleStyles.txt").</source>
+				<target state="translated">Kartenstile (nur GoogleMaps): Gebe URL zu den Kartenstilen an (bspw. "fileadmin/images/googleStyles.txt").</target>
+			</trans-unit>
+		</body>
+	</file>
+</xliff>
