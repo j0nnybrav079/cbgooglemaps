@@ -2,6 +2,13 @@
 
 namespace Brinkert\Cbgooglemaps\Service;
 
+use TYPO3\CMS\Backend\Template\DocumentTemplate;
+use TYPO3\CMS\Core\Page\PageRenderer;
+use TYPO3\CMS\Core\TypoScript\TemplateService;
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Frontend\Page\PageRepository;
+
 /**
  * Class with methods to extend flexforms with user fields
  *
@@ -15,12 +22,12 @@ class IncludeBeJavascript
     protected $configurationManager = null;
     protected $settings = null;
     /**
-     * @var \TYPO3\CMS\Backend\Template\DocumentTemplate $doc
+     * @var DocumentTemplate $doc
      */
     protected $doc = null;
 
     /**
-     * @var \TYPO3\CMS\Backend\Template\DocumentTemplate $doc
+     * @var DocumentTemplate $doc
      */
     protected $pagerenderer = null;
 
@@ -38,8 +45,8 @@ class IncludeBeJavascript
     {
 
         // fetch current extension typoscript configuration
-        $sysPageObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\Page\\PageRepository');
-        $TSObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\TypoScript\\TemplateService');
+        $sysPageObj = GeneralUtility::makeInstance(PageRepository::class);
+        $TSObj = GeneralUtility::makeInstance(TemplateService::class);
         $TSObj->tt_track = 0;
         $TSObj->init();
         $TSObj->runThroughTemplates($sysPageObj->getRootLine($config['row']['pid']));
@@ -54,15 +61,15 @@ class IncludeBeJavascript
         // set pagerenderer
         if (7 <= (int) $major) {
             // TYPO3 Version 7 and higher
-            $this->pagerenderer = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(\TYPO3\CMS\Core\Page\PageRenderer::class);
+            $this->pagerenderer = GeneralUtility::makeInstance(PageRenderer::class);
         } else {
             // TYPO3 Version: 6.2 or less ...
-            $this->doc = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Backend\Template\DocumentTemplate');
+            $this->doc = GeneralUtility::makeInstance(DocumentTemplate::class);
             $this->pagerenderer = $this->doc->getPageRenderer();
         }
 
         // set relative extension path
-        $this->filePath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('cbgooglemaps');
+        $this->filePath = ExtensionManagementUtility::siteRelPath('cbgooglemaps');
 
         // add own scripts for gmaps object and mapping functions
         $this->pagerenderer->addJsFile(

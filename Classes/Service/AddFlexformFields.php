@@ -2,6 +2,8 @@
 
 namespace Brinkert\Cbgooglemaps\Service;
 
+use TYPO3\CMS\Frontend\Page\PageRepository;
+
 /**
  * Class with methods to extend flexforms with user fields
  * @path 				addFlexformFields.php
@@ -86,9 +88,9 @@ class AddFlexformFields
     private function getExtensionConfiguration($pid)
     {
         /** instantiate TYPO3\CMS\Frontend\Page\PageRepository object
-         * @var \TYPO3\CMS\Frontend\Page\PageRepository $sysPageObj
+         * @var PageRepository $sysPageObj
          */
-        $sysPageObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Frontend\Page\PageRepository');
+        $sysPageObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(PageRepository::class);
         // get rootline from current page ($config['row']['pid'])
         $rootLine = $sysPageObj->getRootLine($pid);
         // instantiate TYPO3\CMS\Core\TypoScript\ExtendedTemplateService object

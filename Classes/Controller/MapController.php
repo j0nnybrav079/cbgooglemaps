@@ -2,6 +2,12 @@
 
 namespace Brinkert\Cbgooglemaps\Controller;
 
+use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
+use TYPO3\CMS\Core\Utility\GeneralUtility;
+use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
+use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
+use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
+
 /**
  * Class to extend the backend with a tca user field
  * @path 				Cbgooglemaps\Controller\MapController.php
@@ -9,11 +15,11 @@ namespace Brinkert\Cbgooglemaps\Controller;
  * @copyright 			(c)2011-2018 Christian Brinkert
  * @author 				Christian Brinkert <christian.brinkert@googlemail.com>
  */
-class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
+class MapController extends ActionController
 {
 
     /**
-     * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager
+     * @var ConfigurationManagerInterface $configurationManager
      */
     protected $configurationManager;
     protected $ceData;
@@ -23,9 +29,9 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
     /**
      * Inject configuration manager
-     * @param \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager
+     * @param ConfigurationManagerInterface $configurationManager
      */
-    public function injectConfigurationManager(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager)
+    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager)
     {
         $this->configurationManager = $configurationManager;
     }
@@ -40,17 +46,17 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
         // get extension typoscript
         $this->settings = $this->configurationManager->getConfiguration(
-                            \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
+                            ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
                             'Cbgooglemaps',
                             'Quickgooglemap'
         );
 
         // set sitepath
-        $this->filePath = \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::siteRelPath('cbgooglemaps');
+        $this->filePath = ExtensionManagementUtility::siteRelPath('cbgooglemaps');
 
         // set content object renderer
-        $this->cobj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-            'TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer'
+        $this->cobj = GeneralUtility::makeInstance(
+            ContentObjectRenderer::class
         );
     }
 
@@ -172,10 +178,10 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                             ),
             // assign icon if given by constant or typoscript
             'icon'      => null != $this->ceData['icon'] && file_exists(PATH_site . $this->ceData['icon'])
-                ? \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->ceData['icon']
+                ? GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->ceData['icon']
                 : (
                 !empty($this->settings['display']['icon']) && file_exists(PATH_site . $this->settings['display']['icon'])
-                    ? \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->settings['display']['icon']
+                    ? GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->settings['display']['icon']
                     : null
                 ),
             // add map styling default
@@ -188,7 +194,6 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
     /**
      * Fetch and return map styling from file if defined
-     * @param array $mapParameter
      * @return mixed
      */
     private function getMapStyling()
