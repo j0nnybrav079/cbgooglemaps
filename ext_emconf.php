@@ -10,7 +10,7 @@
  * writing. "version" and "dependencies" must not be touched!
  ***************************************************************/
 
-$EM_CONF[$_EXTKEY] = array (
+$EM_CONF[$_EXTKEY] = [
   'title' => 'Quick Maps',
   'description' => 'formerly "Quick Google Maps" - Include maps by GoogleMaps, MapBox or OpenStreetMap to your frontend, in a quick and easy way - as content element, by typoscript or even with fluid cObject.',
   'category' => 'plugin',
@@ -22,18 +22,17 @@ $EM_CONF[$_EXTKEY] = array (
   'author' => 'Christian Brinkert',
   'author_email' => 'ChristianBrinkert@googlemail.com',
   'author_company' => '',
-  'constraints' => 
-  array (
-    'depends' => 
-    array (
+  'constraints' =>
+  [
+    'depends' =>
+    [
       'typo3' => '6.2.0-9.5.99',
-    ),
-    'conflicts' => 
-    array (
-    ),
-    'suggests' => 
-    array (
-    ),
-  ),
-);
-
+    ],
+    'conflicts' =>
+    [
+    ],
+    'suggests' =>
+    [
+    ],
+  ],
+];
