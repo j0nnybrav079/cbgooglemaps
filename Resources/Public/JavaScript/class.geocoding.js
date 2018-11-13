@@ -416,7 +416,9 @@ function Geocoding() {
 		var fieldPrefix = "data[tt_content][" + gmap.getUid() + "][pi_flexform][data][sDEF][lDEF]";
 
 		$("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLatitude][vDEF]\']").val(self.gmap.getLatitude());
+		$("input[name*=\'" + fieldPrefix + "[settings.cbgmLatitude][vDEF]\']").val(self.gmap.getLatitude());
 		$("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLongitude][vDEF]\']").val(self.gmap.getLongitude());
+		$("input[name*=\'" + fieldPrefix + "[settings.cbgmLongitude][vDEF]\']").val(self.gmap.getLongitude());
 	};
 
 
