@@ -217,24 +217,10 @@ function Geocoding() {
 		var fieldPrefix1 = "data[tt_content][" + this.gmap.getUid() + "][pi_flexform][data][sDEF][lDEF]";
 		var fieldPrefix2 = "data[tt_content][" + this.gmap.getUid() + "][pi_flexform][data][s_displayproperties][lDEF]";
 
-		// TYPO3 <= 6.2
-		if (document.getElementsByName(fieldPrefix1 + "[settings.cbgmZip][vDEF]_hr")[0]) {
-
-			infoText = document.getElementsByName(fieldPrefix2 + "[settings.cbgmDescription][vDEF]")[0].value;
-			mapZoom = parseInt(document.getElementsByName(fieldPrefix2 + "[settings.cbgmScaleLevel][vDEF]_hr")[0].value, 10);
-			mapType = document.getElementsByName(fieldPrefix2 + "[settings.cbgmMapType][vDEF]")[0].value;
-			mapControl = document.getElementsByName(fieldPrefix2 + "[settings.cbgmNavigationControl][vDEF]")[0].value;
-		}
-		// TYPO3 >= 7.x
-		else if (TYPO3.jQuery
-			&& TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix1 + "[settings.cbgmStreet][vDEF]\']")) {
-
-			infoText = TYPO3.jQuery("textarea[name*=\'" + fieldPrefix2 + "[settings.cbgmDescription][vDEF]\']").val();
-			mapZoom = parseInt(TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix2 + "[settings.cbgmScaleLevel][vDEF]\']").val(), 10);
-			mapType = TYPO3.jQuery("select[name*=\'" + fieldPrefix2 + "[settings.cbgmMapType][vDEF]\']").val();
-			mapControl = TYPO3.jQuery("select[name*=\'" + fieldPrefix2 + "[settings.cbgmNavigationControl][vDEF]\']").val();
-		}
-
+		infoText = $("textarea[name*=\'" + fieldPrefix2 + "[settings.cbgmDescription][vDEF]\']").val();
+		mapZoom = parseInt($("input[data-formengine-input-name*=\'" + fieldPrefix2 + "[settings.cbgmScaleLevel][vDEF]\']").val(), 10);
+		mapType = $("select[name*=\'" + fieldPrefix2 + "[settings.cbgmMapType][vDEF]\']").val();
+		mapControl = $("select[name*=\'" + fieldPrefix2 + "[settings.cbgmNavigationControl][vDEF]\']").val();
 
 		if (isNaN(mapZoom)) mapZoom = parseInt(defaultZoom);
 		if ('' === mapType) mapType = defaultMapType;
@@ -408,29 +394,13 @@ function Geocoding() {
 		// fetch current inputs
 		var fieldPrefix = "data[tt_content][" + gmap.getUid() + "][pi_flexform][data][sDEF][lDEF]";
 
-		// TYPO3 <= 6.2
-		if (document.getElementsByName(fieldPrefix + "[settings.cbgmZip][vDEF]_hr")[0]) {
-
-			// set address to gmap instance, street, zip, city and country
-			gmap.setAddress(
-				document.getElementsByName(fieldPrefix + "[settings.cbgmStreet][vDEF]_hr")[0].value,
-				document.getElementsByName(fieldPrefix + "[settings.cbgmZip][vDEF]_hr")[0].value,
-				document.getElementsByName(fieldPrefix + "[settings.cbgmCity][vDEF]_hr")[0].value,
-				document.getElementsByName(fieldPrefix + "[settings.cbgmCountry][vDEF]_hr")[0].value
-			);
-		}
-		// TYPO3 >= 7.x
-		else if (TYPO3.jQuery
-			&& TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmStreet][vDEF]\']")) {
-
-			// set address to gmap instance, street, zip, city and country
-			gmap.setAddress(
-				TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmStreet][vDEF]\']").val(),
-				TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmZip][vDEF]\']").val(),
-				TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmCity][vDEF]\']").val(),
-				TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmCountry][vDEF]\']").val()
-			);
-		}
+		// set address to gmap instance, street, zip, city and country
+		gmap.setAddress(
+			$("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmStreet][vDEF]\']").val(),
+			$("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmZip][vDEF]\']").val(),
+			$("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmCity][vDEF]\']").val(),
+			$("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmCountry][vDEF]\']").val()
+		);
 
 	};
 
@@ -445,23 +415,8 @@ function Geocoding() {
 		// write results to backend form
 		var fieldPrefix = "data[tt_content][" + gmap.getUid() + "][pi_flexform][data][sDEF][lDEF]";
 
-		// TYPO3 <= 6.2
-		if (document.getElementsByName(fieldPrefix + "[settings.cbgmLatitude][vDEF]_hr")[0]) {
-
-			document.getElementsByName(fieldPrefix + "[settings.cbgmLatitude][vDEF]_hr")[0].value = self.gmap.getLatitude();
-			document.getElementsByName(fieldPrefix + "[settings.cbgmLatitude][vDEF]")[0].value = self.gmap.getLatitude();
-			document.getElementsByName(fieldPrefix + "[settings.cbgmLongitude][vDEF]_hr")[0].value = self.gmap.getLongitude();
-			document.getElementsByName(fieldPrefix + "[settings.cbgmLongitude][vDEF]")[0].value = self.gmap.getLongitude();
-		}
-		// TYPO3 >= 7.x
-		else if (TYPO3.jQuery
-			&& TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLatitude][vDEF]\']")) {
-
-			TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLatitude][vDEF]\']").val(self.gmap.getLatitude());
-			TYPO3.jQuery("input[name*=\'" + fieldPrefix + "[settings.cbgmLatitude][vDEF]\']").val(self.gmap.getLatitude());
-			TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLongitude][vDEF]\']").val(self.gmap.getLongitude());
-			TYPO3.jQuery("input[name*=\'" + fieldPrefix + "[settings.cbgmLongitude][vDEF]\']").val(self.gmap.getLongitude());
-		}
+		$("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLatitude][vDEF]\']").val(self.gmap.getLatitude());
+		$("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLongitude][vDEF]\']").val(self.gmap.getLongitude());
 	};
 
 
@@ -474,22 +429,12 @@ function Geocoding() {
 
 		var fieldPrefix = "data[tt_content][" + gmap.getUid() + "][pi_flexform][data][sDEF][lDEF]";
 
-		// TYPO3 <= 6.2
-		if (document.getElementsByName(fieldPrefix + "[settings.cbgmLatitude][vDEF]_hr")[0]) {
-			gmap.setLatitude(parseFloat(document.getElementsByName(fieldPrefix + "[settings.cbgmLatitude][vDEF]_hr")[0].value));
-			gmap.setLongitude(parseFloat(document.getElementsByName(fieldPrefix + "[settings.cbgmLongitude][vDEF]_hr")[0].value));
-		}
-		// TYPO3 >= 7.x
-		else if (TYPO3.jQuery
-			&& TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLatitude][vDEF]\']")) {
-
-			gmap.setLatitude(parseFloat(
-				TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLatitude][vDEF]\']").val()
-			));
-			gmap.setLongitude(parseFloat(
-				TYPO3.jQuery("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLongitude][vDEF]\']").val()
-			));
-		}
+		gmap.setLatitude(parseFloat(
+			$("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLatitude][vDEF]\']").val()
+		));
+		gmap.setLongitude(parseFloat(
+			$("input[data-formengine-input-name*=\'" + fieldPrefix + "[settings.cbgmLongitude][vDEF]\']").val()
+		));
 	};
 
 }
