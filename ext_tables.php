@@ -1,16 +1,12 @@
-<?php 
-if (!defined('TYPO3_MODE')) {
-	die ('Access denied.');
-}
-
+<?php
+defined('TYPO3_MODE') or die();
 
 // register plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-	'Brinkert.' . $_EXTKEY,
-	'Quickgooglemap',
-	'Quick map integration'
+    'Brinkert.' . $_EXTKEY,
+    'Quickgooglemap',
+    'Quick map integration'
 );
-
 
 // register icon
 $iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
@@ -28,22 +24,22 @@ $TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['Brinkert\Cbgooglemap
     \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath($_EXTKEY) .
     'Classes/Utility/Hook/ContentElementWizard.php';
 
-
 // add static typoscripts
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
-		$_EXTKEY, 'Configuration/TypoScript', 'Quick Maps');
-
+        $_EXTKEY,
+    'Configuration/TypoScript',
+    'Quick Maps'
+);
 
 // set plugin signature
-$pluginSignature = str_replace('_','',$_EXTKEY) . '_quickgooglemap';
+$pluginSignature = str_replace('_', '', $_EXTKEY) . '_quickgooglemap';
 // add flexform fields to the list
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignature] = 'pi_flexform';
 // define flexform file
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addPiFlexFormValue(
-		$pluginSignature, 'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_quickgooglemap.xml');
-
+        $pluginSignature,
+    'FILE:EXT:' . $_EXTKEY . '/Configuration/FlexForms/flexform_quickgooglemap.xml'
+);
 
 // exclude some default fields, like: layout, select_key, pages and recursive
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'layout,select_key,pages,recursive';
-
-
