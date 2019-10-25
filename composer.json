@@ -25,7 +25,7 @@
     }
   },
   "replace": {
-    "cbgooglemaps": "self.version",
+    "brinkert/cbgooglemaps": "self.version",
     "typo3-ter/cbgooglemaps": "self.version"
   },
   "config": {
