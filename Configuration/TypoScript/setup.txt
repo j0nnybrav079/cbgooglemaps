@@ -1,0 +1,81 @@
+plugin.tx_cbgooglemaps {
+	settings{
+		mapProvider 		   = {$plugin.tx_cbgooglemaps.mapProvider}
+
+		mapboxapi{
+			js  			   = {$plugin.tx_cbgooglemaps.mapboxapi.js}
+			css 			   = {$plugin.tx_cbgooglemaps.mapboxapi.css}
+			accessToken 	   = {$plugin.tx_cbgooglemaps.mapboxapi.accessToken}
+			icon{
+				iconUrl        = {$plugin.tx_cbgooglemaps.mapboxapi.icon.iconUrl}
+				iconWidth      = {$plugin.tx_cbgooglemaps.mapboxapi.icon.iconWidth}
+				iconHeight     = {$plugin.tx_cbgooglemaps.mapboxapi.icon.iconHeight}
+				iconOffsetX    = {$plugin.tx_cbgooglemaps.mapboxapi.icon.iconOffsetX}
+				iconOffsetY    = {$plugin.tx_cbgooglemaps.mapboxapi.icon.iconOffsetY}
+			}
+		}
+		osmapi {
+			js 			       = {$plugin.tx_cbgooglemaps.osmapi.js}
+			css 			   = {$plugin.tx_cbgooglemaps.osmapi.css}
+			tileLayer {
+				template 	   = {$plugin.tx_cbgooglemaps.osmapi.tileLayer.template}
+				attribution    = {$plugin.tx_cbgooglemaps.osmapi.tileLayer.attribution}
+			}
+			icon{
+				iconUrl        = {$plugin.tx_cbgooglemaps.osmapi.icon.iconUrl}
+				iconWidth      = {$plugin.tx_cbgooglemaps.osmapi.icon.iconWidth}
+				iconHeight     = {$plugin.tx_cbgooglemaps.osmapi.icon.iconHeight}
+				iconAnchorX    = {$plugin.tx_cbgooglemaps.osmapi.icon.iconAnchorX}
+				iconAnchorY    = {$plugin.tx_cbgooglemaps.osmapi.icon.iconAnchorY}
+				popupAnchorX   = {$plugin.tx_cbgooglemaps.osmapi.icon.popupAnchorX}
+				popupAnchorY   = {$plugin.tx_cbgooglemaps.osmapi.icon.popupAnchorY}
+				tooltipAnchorX = {$plugin.tx_cbgooglemaps.osmapi.icon.tooltipAnchorX}
+				tooltipAnchorY = {$plugin.tx_cbgooglemaps.osmapi.icon.tooltipAnchorY}
+				shadowUrl      = {$plugin.tx_cbgooglemaps.osmapi.icon.shadowUrl}
+				shadowWidth    = {$plugin.tx_cbgooglemaps.osmapi.icon.shadowWidth}
+				shadowHeight   = {$plugin.tx_cbgooglemaps.osmapi.icon.shadowHeight}
+				shadowAnchorX  = {$plugin.tx_cbgooglemaps.osmapi.icon.shadowAnchorX}
+				shadowAnchorY  = {$plugin.tx_cbgooglemaps.osmapi.icon.shadowAnchorY}
+			}
+		}
+		googleapi {
+			uri 			   = {$plugin.tx_cbgooglemaps.googleapi.uri}
+			key 			   = {$plugin.tx_cbgooglemaps.googleapi.key}
+		}
+		options {
+			useScrollwheel 	   = {$plugin.tx_cbgooglemaps.options.useScrollwheel}
+		}
+		display{
+			width 			   = {$plugin.tx_cbgooglemaps.display.width}
+			height 			   = {$plugin.tx_cbgooglemaps.display.height}
+			mapType 		   = {$plugin.tx_cbgooglemaps.display.mapType}
+			zoom 			   = {$plugin.tx_cbgooglemaps.display.zoom}
+			navigationControl  = {$plugin.tx_cbgooglemaps.display.mapControl}
+			icon 			   = {$plugin.tx_cbgooglemaps.display.icon}
+			mapStyling 		   = {$plugin.tx_cbgooglemaps.display.styling}
+		}		
+		valid{
+			mapTypes 		   = HYBRID,ROADMAP,SATELLITE,TERRAIN,MapBox-BASIC,MapBox-STREETS,MapBox-BRIGHT,MapBox-LIGHT,MapBox-DARK,MapBox-SATELLITE
+			navigationControl  = SMALL,DEFAULT,ANDROID,ZOOM_PAN
+		}
+
+		latitude 			   = {$plugin.tx_cbgooglemaps.latitude}
+		longitude 			   = {$plugin.tx_cbgooglemaps.longitude}
+
+		infoText 			   = {$plugin.tx_cbgooglemaps.infoText}
+		infoTextOpen 		   = {$plugin.tx_cbgooglemaps.infoTextOpen}
+	}
+
+	_LOCAL_LANG{
+		default{
+			btnGeocoding  	   = Fetch coordinates from above mentioned address
+			btnDisplayMap 	   = Display current location
+			btnPreviewMap      = Display preview map
+		}
+		de{
+			btnGeocoding  	   = Ermittle Koordinaten aus oben genannter Adresse
+			btnDisplayMap 	   = Zeige Karteansicht
+			btnPreviewMap      = zeige Kartenvorschau
+		}
+	}
+}

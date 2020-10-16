@@ -1,277 +1,271 @@
 
-
 <div class="cbQuickGoogleMap">
-	<f:if condition="{width}">
-		<f:then>
-			<div class="inner_cbQuickGoogleMap" id="cbsgm_{contentId}" style="width:{width}px; height:{height}px;"></div>
-		</f:then>
-		<f:else>
-			<div class="inner_cbQuickGoogleMap" id="cbsgm_{contentId}" style="width:100%; height:{height}px;"></div>
-		</f:else>
-	</f:if>
+    <f:if condition="{width}">
+        <f:then>
+            <div class="inner_cbQuickGoogleMap" id="cbsgm_{contentId}" style="width:{width}px; height:{height}px;"></div>
+        </f:then>
+        <f:else>
+            <div class="inner_cbQuickGoogleMap" id="cbsgm_{contentId}" style="width:100%; height:{height}px;"></div>
+        </f:else>
+    </f:if>
 </div>
 
 
 
 <f:if condition="{mapProvider} == 'Google'">
 
-	<script type="text/javascript" charset="utf-8">
-	window.addEventListener("load", function(event) {braceStart}
+    <script type="text/javascript" charset="utf-8">
+        window.addEventListener("load", function(event) {braceStart}
 
         var mapType_{contentId} = '{mapType}';
 
         // get map styling
         switch (mapType_{contentId}) {braceStart}
-			case "HYBRID":
-				mapType_{contentId} = google.maps.MapTypeId.HYBRID;
-				break;
-			case "SATELLITE":
-				mapType_{contentId} = google.maps.MapTypeId.SATELLITE;
-				break;
-			case "TERRAIN":
-				mapType_{contentId} = google.maps.MapTypeId.TERRAIN;
-				break;
-			default:
-				mapType_{contentId} = google.maps.MapTypeId.ROADMAP;
+        case "HYBRID":
+        mapType_{contentId} = google.maps.MapTypeId.HYBRID;
+        break;
+        case "SATELLITE":
+        mapType_{contentId} = google.maps.MapTypeId.SATELLITE;
+        break;
+        case "TERRAIN":
+        mapType_{contentId} = google.maps.MapTypeId.TERRAIN;
+        break;
+        default:
+        mapType_{contentId} = google.maps.MapTypeId.ROADMAP;
         {braceEnd}
 
-		var infoText_{contentId} = decodeURIComponent("{infoText}").replace(/\+/g, ' ');
+        var infoText_{contentId} = decodeURIComponent("{infoText}").replace(/\+/g, ' ');
 
-		// split infoText into rows
-		var rowsInfoText_{contentId} = infoText_{contentId}.split("<br>");
+        // split infoText into rows
+        var rowsInfoText_{contentId} = infoText_{contentId}.split("<br>");
 
-		var latlng_{contentId} = new google.maps.LatLng(
-			<f:format.number decimals="10" decimalSeparator=".">{latitude}</f:format.number>,
-			<f:format.number decimals="10" decimalSeparator=".">{longitude}</f:format.number>
-		);
+        var latlng_{contentId} = new google.maps.LatLng(
+            <f:format.number decimals="10" decimalSeparator=".">{latitude}</f:format.number>,
+            <f:format.number decimals="10" decimalSeparator=".">{longitude}</f:format.number>
+        );
 
-		var mapOptions_{contentId} = {braceStart}
-			center:      latlng_{contentId},
-			zoom:        {mapZoom},
-			mapTypeId:   mapType_{contentId},
-			navigationControlOptions: new Object(),
-			scrollwheel: {useScrollwheel},
-			<f:if condition="{mapStyling}">
-				styles: <f:format.raw>{mapStyling}</f:format.raw>,
-			</f:if>
-		{braceEnd}
-		mapOptions_{contentId}.navigationControlOptions.style = google.maps.NavigationControlStyle.{mapControl};
+        var mapOptions_{contentId} = {braceStart}
+        center:      latlng_{contentId},
+        zoom:        {mapZoom},
+        mapTypeId:   mapType_{contentId},
+        navigationControlOptions: new Object(),
+            scrollwheel: {useScrollwheel},
+        <f:if condition="{mapStyling}">
+            styles: <f:format.raw>{mapStyling}</f:format.raw>,
+        </f:if>
+        {braceEnd}
+        mapOptions_{contentId}.navigationControlOptions.style = google.maps.NavigationControlStyle.{mapControl};
 
-		var mapCenter_{contentId} = {braceStart}
-			position: latlng_{contentId},
-			title:    rowsInfoText_{contentId}[0],
-		<f:if condition="{icon}">
-			icon:     '{icon}',
-		</f:if>
-		{braceEnd}
+        var mapCenter_{contentId} = {braceStart}
+        position: latlng_{contentId},
+        title:    rowsInfoText_{contentId}[0],
+        <f:if condition="{icon}">
+            icon:     '{icon}',
+        </f:if>
+        {braceEnd}
 
-		var map_{contentId}    = new google.maps.Map(document.getElementById("cbsgm_{contentId}"), mapOptions_{contentId});
-		var marker_{contentId} = new google.maps.Marker(mapCenter_{contentId});
+        var map_{contentId}    = new google.maps.Map(document.getElementById("cbsgm_{contentId}"), mapOptions_{contentId});
+        var marker_{contentId} = new google.maps.Marker(mapCenter_{contentId});
 
-		// set info window
-		if ('' != infoText_{contentId}){braceStart}
-			infoText_{contentId}       = infoText_{contentId}.replace(/\n/g, "<br>");
-			var infoBox_{contentId}    = {braceStart} content: infoText_{contentId} {braceEnd}
-			var infowindow_{contentId} = new google.maps.InfoWindow(infoBox_{contentId});
+        // set info window
+        if ('' != infoText_{contentId}){braceStart}
+        infoText_{contentId}       = infoText_{contentId}.replace(/\n/g, "<br>");
+        var infoBox_{contentId}    = {braceStart} content: infoText_{contentId} {braceEnd}
+        var infowindow_{contentId} = new google.maps.InfoWindow(infoBox_{contentId});
 
-			// add listener
-			google.maps.event.addListener(marker_{contentId}, 'click', function(){
-					infowindow_{contentId}.open(map_{contentId},marker_{contentId});
-			});
-		{braceEnd}
+        // add listener
+        google.maps.event.addListener(marker_{contentId}, 'click', function(){
+            infowindow_{contentId}.open(map_{contentId},marker_{contentId});
+        });
+        {braceEnd}
 
 
-		if (true == '{openInfoBox}') {
-		  // show map, open infoBox and center view to marker and infowindow
-		  google.maps.event.addListener(map_{contentId}, 'tilesloaded', function(){
-				google.maps.event.trigger(marker_{contentId}, 'click');
-				google.maps.event.clearListeners(map_{contentId}, 'tilesloaded');
-		  });
-		}
+        if (true == '{openInfoBox}') {
+            // show map, open infoBox and center view to marker and infowindow
+            google.maps.event.addListener(map_{contentId}, 'tilesloaded', function(){
+                google.maps.event.trigger(marker_{contentId}, 'click');
+                google.maps.event.clearListeners(map_{contentId}, 'tilesloaded');
+            });
+        }
 
-		// assign marker to the map
-		marker_{contentId}.setMap(map_{contentId});
+        // assign marker to the map
+        marker_{contentId}.setMap(map_{contentId});
 
-    {braceEnd}, false);
-	</script>
+        {braceEnd}, false);
+    </script>
 
 </f:if>
 
 
 
-
-
-
 <f:if condition="{mapProvider} == 'MapBox'">
 
-	<script type="text/javascript" charset="utf-8">
-	window.addEventListener("load", function(event) {braceStart}
+    <script type="text/javascript" charset="utf-8">
+        window.addEventListener("load", function(event) {braceStart}
 
-		var mapType_{contentId} = '{mapType}';
-		var infoText_{contentId} = '{infoText}';
-		var useScrollwheel_{contentId} = '{useScrollwheel}';
+        var mapType_{contentId} = '{mapType}';
+        var infoText_{contentId} = '{infoText}';
+        var useScrollwheel_{contentId} = '{useScrollwheel}';
 
-		// get map styling
-		switch (mapType_{contentId}) {braceStart}
-			case "MapBox-BASIC":
-				mapType_{contentId} = 'mapbox://styles/mapbox/basic-v9';
-				break;
-			case "MapBox-BRIGHT":
-				mapType_{contentId} = 'mapbox://styles/mapbox/bright-v9';
-				break;
-			case "MapBox-LIGHT":
-				mapType_{contentId} = 'mapbox://styles/mapbox/light-v9';
-				break;
-			case "MapBox-DARK":
-				mapType_{contentId} = 'mapbox://styles/mapbox/dark-v9';
-				break;
-			case "MapBox-SATELLITE":
-				mapType_{contentId} = 'mapbox://styles/mapbox/satellite-v9';
-				break;
-			default:
-				mapType_{contentId} = 'mapbox://styles/mapbox/streets-v9';
+        // get map styling
+        switch (mapType_{contentId}) {braceStart}
+        case "MapBox-BASIC":
+        mapType_{contentId} = 'mapbox://styles/mapbox/basic-v9';
+        break;
+        case "MapBox-BRIGHT":
+        mapType_{contentId} = 'mapbox://styles/mapbox/bright-v9';
+        break;
+        case "MapBox-LIGHT":
+        mapType_{contentId} = 'mapbox://styles/mapbox/light-v9';
+        break;
+        case "MapBox-DARK":
+        mapType_{contentId} = 'mapbox://styles/mapbox/dark-v9';
+        break;
+        case "MapBox-SATELLITE":
+        mapType_{contentId} = 'mapbox://styles/mapbox/satellite-v9';
+        break;
+        default:
+        mapType_{contentId} = 'mapbox://styles/mapbox/streets-v9';
         {braceEnd}
 
         //
-		// create map by mapboy
-		mapboxgl.accessToken = '{settings.mapboxapi.accessToken}';
+        // create map by mapboy
+        mapboxgl.accessToken = '{settings.mapboxapi.accessToken}';
 
-		var mapboxmap_{contentId} = new mapboxgl.Map({braceStart}
-			container: 'cbsgm_{contentId}',
-			center: [{longitude}, {latitude}],       // longitude and latitude switched!
-			minZoomnumber: 0,
-			maxZoomnumber: 24,
-			zoom:{mapZoom},
+        var mapboxmap_{contentId} = new mapboxgl.Map({braceStart}
+        container: 'cbsgm_{contentId}',
+            center: [{longitude}, {latitude}],       // longitude and latitude switched!
+            minZoomnumber: 0,
+            maxZoomnumber: 24,
+            zoom:{mapZoom},
         style: mapType_{contentId}
         {braceEnd}).addControl(new mapboxgl.NavigationControl());
 
 
-		// disable mousewheel for zooming
+        // disable mousewheel for zooming
         if (0 == useScrollwheel_{contentId}) {braceStart}
-            mapboxmap_{contentId}.scrollZoom.disable();
+        mapboxmap_{contentId}.scrollZoom.disable();
         {braceEnd}
 
-		// add infotext popup if given
-		if ('' !== infoText_{contentId}) {braceStart}
-		var mapboxPopup_{contentId} = new mapboxgl.Popup({braceStart} closeOnClick: true, closeButton: false {braceEnd})
-			.setLngLat([{longitude}, {latitude}])
-			.setHTML( decodeURIComponent("{infoText}").replace(/\+/g, ' ').replace(/\n/g, '<br/>') );
+        // add infotext popup if given
+        if ('' !== infoText_{contentId}) {braceStart}
+        var mapboxPopup_{contentId} = new mapboxgl.Popup({braceStart} closeOnClick: true, closeButton: false {braceEnd})
+        .setLngLat([{longitude}, {latitude}])
+            .setHTML( decodeURIComponent("{infoText}").replace(/\+/g, ' ').replace(/\n/g, '<br/>') );
         {braceEnd}
 
         // open infotextBox if defined
         if (true == '{openInfoBox}'){braceStart}
-            mapboxPopup_{contentId}.addTo(mapboxmap_{contentId});
+        mapboxPopup_{contentId}.addTo(mapboxmap_{contentId});
         {braceEnd}
 
 
         // add mapbox icon if given
         <f:if condition="{settings.mapboxapi.icon.iconUrl}">
             var mapBoxIcon_{contentId} = document.createElement('div');
-        		mapBoxIcon_{contentId}.className = 'marker';
-        		mapBoxIcon_{contentId}.style.backgroundImage = "url('{settings.mapboxapi.icon.iconUrl}')";
-        		mapBoxIcon_{contentId}.style.backgroundSize = 'contain';
-				<f:if condition="{settings.mapboxapi.icon.iconWidth}">
-        		mapBoxIcon_{contentId}.style.width = '{settings.mapboxapi.icon.iconWidth}px';</f:if>
-				<f:if condition="{settings.mapboxapi.icon.iconHeight}">
-				mapBoxIcon_{contentId}.style.height = '{settings.mapboxapi.icon.iconHeight}px';</f:if>
-				<f:if condition="0 <> {settings.mapboxapi.icon.iconOffsetY}">
-				mapBoxIcon_{contentId}.style.top = '{settings.mapboxapi.icon.iconOffsetY}px';</f:if>
-				<f:if condition="0 <> {settings.mapboxapi.icon.iconOffsetX}">
-				mapBoxIcon_{contentId}.style.left = '{settings.mapboxapi.icon.iconOffsetX}px';</f:if>
+        mapBoxIcon_{contentId}.className = 'marker';
+        mapBoxIcon_{contentId}.style.backgroundImage = "url('{settings.mapboxapi.icon.iconUrl}')";
+        mapBoxIcon_{contentId}.style.backgroundSize = 'contain';
+        <f:if condition="{settings.mapboxapi.icon.iconWidth}">
+            mapBoxIcon_{contentId}.style.width = '{settings.mapboxapi.icon.iconWidth}px';</f:if>
+        <f:if condition="{settings.mapboxapi.icon.iconHeight}">
+            mapBoxIcon_{contentId}.style.height = '{settings.mapboxapi.icon.iconHeight}px';</f:if>
+        <f:if condition="0 <> {settings.mapboxapi.icon.iconOffsetY}">
+            mapBoxIcon_{contentId}.style.top = '{settings.mapboxapi.icon.iconOffsetY}px';</f:if>
+        <f:if condition="0 <> {settings.mapboxapi.icon.iconOffsetX}">
+            mapBoxIcon_{contentId}.style.left = '{settings.mapboxapi.icon.iconOffsetX}px';</f:if>
         </f:if>
 
 
-		// add marker to the position
-		var mapboxMarker_{contentId} = new mapboxgl.Marker(
-		    <f:if condition="{settings.mapboxapi.icon.iconUrl}">mapBoxIcon_{contentId} </f:if>)
-			.setLngLat([{longitude}, {latitude}])    // longitude and latitude switched!
-			.addTo(mapboxmap_{contentId})
-			.setPopup(mapboxPopup_{contentId});
+        // add marker to the position
+        var mapboxMarker_{contentId} = new mapboxgl.Marker(
+            <f:if condition="{settings.mapboxapi.icon.iconUrl}">mapBoxIcon_{contentId} </f:if>)
+            .setLngLat([{longitude}, {latitude}])    // longitude and latitude switched!
+            .addTo(mapboxmap_{contentId})
+        .setPopup(mapboxPopup_{contentId});
 
-    {braceEnd}, false);
-	</script>
+        {braceEnd}, false);
+    </script>
 </f:if>
-
-
 
 
 
 <f:if condition="{mapProvider} == 'OpenStreetMap'">
 
-	<script type="text/javascript" charset="utf-8">
-	window.addEventListener("load", function(event) {braceStart}
+    <script type="text/javascript" charset="utf-8">
+        window.addEventListener("load", function(event) {braceStart}
 
-		// set map
-		var map_{contentId} = L.map('cbsgm_{contentId}', {braceStart}
-			center: [{latitude}, {longitude}],
-			zoom: {mapZoom},
-			scrollWheelZoom: {useScrollwheel}
-		{braceEnd});
-
-
-		// add osm layer
-		L.tileLayer('{settings.osmapi.tileLayer.template -> f:format.raw()}', {braceStart}
-			attribution: '{settings.osmapi.tileLayer.attribution -> f:format.raw()}'
-		{braceEnd}).addTo(map_{contentId});
+        // set map
+        var map_{contentId} = L.map('cbsgm_{contentId}', {braceStart}
+        center: [{latitude}, {longitude}],
+            zoom: {mapZoom},
+        scrollWheelZoom: {useScrollwheel}
+        {braceEnd});
 
 
-		// add osm icon if given
+        // add osm layer
+        L.tileLayer('{settings.osmapi.tileLayer.template -> f:format.raw()}', {braceStart}
+        attribution: '{settings.osmapi.tileLayer.attribution -> f:format.raw()}'
+        {braceEnd}).addTo(map_{contentId});
+
+
+        // add osm icon if given
         <f:if condition="{settings.osmapi.icon.iconUrl}">
-		var osmIcon_{contentId} = L.icon({braceStart}
-			iconUrl: '{settings.osmapi.icon.iconUrl}',
-			<f:if condition="{settings.osmapi.icon.iconWidth}">
-			<f:if condition="{settings.osmapi.icon.iconHeight}">
-				iconSize: [{settings.osmapi.icon.iconWidth},{settings.osmapi.icon.iconHeight}],
-			</f:if></f:if>
-			<f:if condition="{settings.osmapi.icon.iconAnchorX}">
-			<f:if condition="{settings.osmapi.icon.iconAnchorY}">
-				iconAnchor: [{settings.osmapi.icon.iconAnchorX},{settings.osmapi.icon.iconAnchorY}],
-			</f:if></f:if>
-			<f:if condition="{settings.osmapi.icon.popupAnchorX}">
-			<f:if condition="{settings.osmapi.icon.popupAnchorY}">
-				popupAnchor: [{settings.osmapi.icon.popupAnchorX},{settings.osmapi.icon.popupAnchorY}],
-			</f:if></f:if>
-			<f:if condition="{settings.osmapi.icon.tooltipAnchorX}">
-			<f:if condition="{settings.osmapi.icon.tooltipAnchorY}">
-				tooltipAnchor: [{settings.osmapi.icon.tooltipAnchorX},{settings.osmapi.icon.tooltipAnchorY}],
-			</f:if></f:if>
-			<f:if condition="{settings.osmapi.icon.shadowUrl}">
-				shadowUrl: {settings.osmapi.icon.shadowUrl},
-			</f:if>
-			<f:if condition="{settings.osmapi.icon.shadowWidth}">
-			<f:if condition="{settings.osmapi.icon.shadowHeight}">
-				shadowSize: [{settings.osmapi.icon.shadowWidth},{settings.osmapi.icon.shadowHeight}],
-			</f:if></f:if>
-			<f:if condition="{settings.osmapi.icon.shadowAnchorX}">
-			<f:if condition="{settings.osmapi.icon.shadowAnchorY}">
-				shadowAnchor: [{settings.osmapi.icon.shadowAnchorX},{settings.osmapi.icon.shadowAnchorY}],
-			</f:if></f:if>
-		{braceEnd});
-		</f:if>
+            var osmIcon_{contentId} = L.icon({braceStart}
+        iconUrl: '{settings.osmapi.icon.iconUrl}',
+        <f:if condition="{settings.osmapi.icon.iconWidth}">
+            <f:if condition="{settings.osmapi.icon.iconHeight}">
+            iconSize: [{settings.osmapi.icon.iconWidth},{settings.osmapi.icon.iconHeight}],
+        </f:if></f:if>
+        <f:if condition="{settings.osmapi.icon.iconAnchorX}">
+            <f:if condition="{settings.osmapi.icon.iconAnchorY}">
+            iconAnchor: [{settings.osmapi.icon.iconAnchorX},{settings.osmapi.icon.iconAnchorY}],
+        </f:if></f:if>
+        <f:if condition="{settings.osmapi.icon.popupAnchorX}">
+            <f:if condition="{settings.osmapi.icon.popupAnchorY}">
+            popupAnchor: [{settings.osmapi.icon.popupAnchorX},{settings.osmapi.icon.popupAnchorY}],
+        </f:if></f:if>
+        <f:if condition="{settings.osmapi.icon.tooltipAnchorX}">
+            <f:if condition="{settings.osmapi.icon.tooltipAnchorY}">
+            tooltipAnchor: [{settings.osmapi.icon.tooltipAnchorX},{settings.osmapi.icon.tooltipAnchorY}],
+        </f:if></f:if>
+        <f:if condition="{settings.osmapi.icon.shadowUrl}">
+            shadowUrl: {settings.osmapi.icon.shadowUrl},
+        </f:if>
+        <f:if condition="{settings.osmapi.icon.shadowWidth}">
+            <f:if condition="{settings.osmapi.icon.shadowHeight}">
+            shadowSize: [{settings.osmapi.icon.shadowWidth},{settings.osmapi.icon.shadowHeight}],
+        </f:if></f:if>
+        <f:if condition="{settings.osmapi.icon.shadowAnchorX}">
+            <f:if condition="{settings.osmapi.icon.shadowAnchorY}">
+            shadowAnchor: [{settings.osmapi.icon.shadowAnchorX},{settings.osmapi.icon.shadowAnchorY}],
+        </f:if></f:if>
+        {braceEnd});
+        </f:if>
 
 
-		// add marker
-		var osmMarker_{contentId} = L.marker([
-		    {latitude}, {longitude}],{braceStart}
-				<f:if condition="{settings.osmapi.icon.iconUrl}"> icon: osmIcon_{contentId} </f:if>
-			{braceEnd}
-		).addTo(map_{contentId});
+        // add marker
+        var osmMarker_{contentId} = L.marker([
+            {latitude}, {longitude}],{braceStart}
+            <f:if condition="{settings.osmapi.icon.iconUrl}"> icon: osmIcon_{contentId} </f:if>
+        {braceEnd}
+        ).addTo(map_{contentId});
 
 
-		// add popup / infotext
-		<f:if condition="{infoText}">
+        // add popup / infotext
+        <f:if condition="{infoText}">
             var infoText_{contentId} = decodeURIComponent("{infoText}").replace(/\+/g, ' ').replace(/\n/g, '<br/>');
 
-			<f:if condition="{openInfoBox}">
-				<f:then>
-					osmMarker_{contentId}.bindPopup(infoText_{contentId}).openPopup();
-				</f:then>
-				<f:else>
-        			osmMarker_{contentId}.bindPopup(infoText_{contentId});
-				</f:else>
-			</f:if>
-		</f:if>
-    {braceEnd}, false);
-	</script>
+        <f:if condition="{openInfoBox}">
+            <f:then>
+        osmMarker_{contentId}.bindPopup(infoText_{contentId}).openPopup();
+        </f:then>
+        <f:else>
+        osmMarker_{contentId}.bindPopup(infoText_{contentId});
+        </f:else>
+        </f:if>
+        </f:if>
+        {braceEnd}, false);
+    </script>
 
 </f:if>

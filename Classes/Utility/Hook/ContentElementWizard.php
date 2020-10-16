@@ -2,8 +2,6 @@
 namespace Brinkert\Cbgooglemaps\Utility\Hook;
 
 use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-use TYPO3\CMS\Core\Utility\VersionNumberUtility;
-
 /***************************************************************
  *  Copyright notice
  *
@@ -27,10 +25,12 @@ use TYPO3\CMS\Core\Utility\VersionNumberUtility;
  *  This copyright notice MUST APPEAR in all copies of the script!
  ***************************************************************/
 
+
 /**
  * Class ContentElementWizard allowes a new icon/link for powermail
  * on adding new content elements
  *
+ * @package In2code\Powermail\Utility\Hook
  */
 class ContentElementWizard
 {
@@ -41,22 +41,38 @@ class ContentElementWizard
      */
     protected $locallangPath = 'LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:';
 
+
     /**
      * Adding a new content element wizard item for powermail
      *
-     * @param array $wizardItems
+     * @param array $ceWizardItems
      * @return array
      */
     public function proc($wizardItems = [])
     {
 
-        $wizardItems['plugins_tx_cbgooglemaps'] = [
-            'iconIdentifier' => 'ce-default-icon',
-            'title'          => $GLOBALS['LANG']->sL($this->locallangPath . 'pluginWizardTitle', true),
-            'description'    => $GLOBALS['LANG']->sL($this->locallangPath . 'pluginWizardDescription', true),
-            'params'         => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=cbgooglemaps_quickgooglemap'
-        ];
+
+
+        // if typo3 major version >= 8
+        if (8000000 <= \TYPO3\CMS\Core\Utility\VersionNumberUtility::convertVersionNumberToInteger(TYPO3_version)){
+            $wizardItems['plugins_tx_cbgooglemaps'] = [
+                'iconIdentifier' => 'ce-default-icon',
+                'title'          => $GLOBALS['LANG']->sL($this->locallangPath . 'pluginWizardTitle', true),
+                'description'    => $GLOBALS['LANG']->sL($this->locallangPath . 'pluginWizardDescription', true),
+                'params'         => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=cbgooglemaps_quickgooglemap'
+            ];
+
+        } else {
+            $wizardItems['plugins_tx_cbgooglemaps'] = [
+                'icon'           => ExtensionManagementUtility::extRelPath('cbgooglemaps') .'Resources/Public/Icons/ce_wiz.gif',
+                'title'          => $GLOBALS['LANG']->sL($this->locallangPath . 'pluginWizardTitle', true),
+                'description'    => $GLOBALS['LANG']->sL($this->locallangPath . 'pluginWizardDescription', true),
+                'params'         => '&defVals[tt_content][CType]=list&defVals[tt_content][list_type]=cbgooglemaps_quickgooglemap'
+            ];
+        }
+
 
         return $wizardItems;
     }
+
 }

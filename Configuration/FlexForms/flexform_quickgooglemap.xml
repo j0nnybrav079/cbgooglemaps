@@ -1,299 +1,267 @@
 <T3DataStructure>
-	<meta>
-		<langDisable>1</langDisable>
-		<langChildren>0</langChildren>
-	</meta>
-	<sheets>
-		<sDEF>
-			<ROOT>
-				<TCEforms>
-					<sheetTitle>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.sheetLocation
-					</sheetTitle>
-				</TCEforms>
-				<type>array</type>
-				<el>
-					<settings.cbgmIncludeJs>
-						<TCEforms>
-							<label></label>
-							<config>
-								<type>user</type>
-								<userFunc>
-									Brinkert\Cbgooglemaps\Service\IncludeBeJavascript->includeCbGoogleMapsJavascript
-								</userFunc>
-							</config>
-						</TCEforms>
-					</settings.cbgmIncludeJs>
-					<settings.cbgmStreet>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.street</label>
-							<config>
-								<type>input</type>
-								<size>40</size>
-								<max>40</max>
-								<eval>trim</eval>
-							</config>
-						</TCEforms>
-					</settings.cbgmStreet>
-					<settings.cbgmZip>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.zip</label>
-							<config>
-								<type>input</type>
-								<size>10</size>
-								<max>10</max>
-								<eval>trim</eval>
-							</config>
-						</TCEforms>
-					</settings.cbgmZip>
-					<settings.cbgmCity>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.city</label>
-							<config>
-								<type>input</type>
-								<size>40</size>
-								<max>40</max>
-								<eval>trim</eval>
-							</config>
-						</TCEforms>
-					</settings.cbgmCity>
-					<settings.cbgmCountry>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.country</label>
-							<config>
-								<type>input</type>
-								<size>40</size>
-								<max>60</max>
-								<eval>trim</eval>
-							</config>
-						</TCEforms>
-					</settings.cbgmCountry>
-					<cbgmButtonGeocoding>
-						<TCEforms>
-							<label></label>
-							<config>
-								<type>user</type>
-								<userFunc>Brinkert\Cbgooglemaps\Service\AddFlexformFields->addGeocodingButton</userFunc>
-							</config>
-						</TCEforms>
-					</cbgmButtonGeocoding>
-					<settings.cbgmLatitude>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.latitude</label>
-							<config>
-								<type>input</type>
-								<size>25</size>
-								<max>25</max>
-								<eval>trim</eval>
-							</config>
-						</TCEforms>
-					</settings.cbgmLatitude>
-					<settings.cbgmLongitude>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.longitude</label>
-							<config>
-								<type>input</type>
-								<size>25</size>
-								<max>25</max>
-								<eval>trim</eval>
-							</config>
-						</TCEforms>
-					</settings.cbgmLongitude>
-				</el>
-			</ROOT>
-		</sDEF>
-		<s_displayproperties>
-			<ROOT>
-				<TCEforms>
-					<sheetTitle>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.sheetDisplay
-					</sheetTitle>
-				</TCEforms>
-				<type>array</type>
-				<el>
-					<settings.cbgmDescription>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.description
-							</label>
-							<config>
-								<type>text</type>
-								<cols>50</cols>
-								<rows>10</rows>
-								<eval>trim</eval>
-							</config>
-						</TCEforms>
-					</settings.cbgmDescription>
-					<settings.cbgmAutoOpen>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.autoOpen</label>
-							<config>
-								<type>check</type>
-								<default>0</default>
-							</config>
-						</TCEforms>
-					</settings.cbgmAutoOpen>
-					<settings.cbgmMapWidth>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapWidth</label>
-							<config>
-								<type>input</type>
-								<size>4</size>
-								<max>5</max>
-								<eval>trim</eval>
-							</config>
-						</TCEforms>
-					</settings.cbgmMapWidth>
-					<settings.cbgmMapHeight>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapHeight</label>
-							<config>
-								<type>input</type>
-								<size>4</size>
-								<max>5</max>
-								<eval>trim</eval>
-								<default>250</default>
-							</config>
-						</TCEforms>
-					</settings.cbgmMapHeight>
-					<settings.cbgmScaleLevel>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.scaleLevel
-							</label>
-							<config>
-								<type>input</type>
-								<size>3</size>
-								<eval>trim</eval>
-								<max>3</max>
-								<default>12</default>
-							</config>
-						</TCEforms>
-					</settings.cbgmScaleLevel>
-					<settings.cbgmMapType>
-						<TCEforms>
-							<label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapType</label>
-							<config>
-								<type>select</type>
-								<default>ROADMAP</default>
-								<items type="array">
-									<numIndex index="0" type="array">
-										<numIndex index="0"></numIndex>
-										<numIndex index="1"></numIndex>
-									</numIndex>
-									<numIndex index="1" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeRoadmap
-										</numIndex>
-										<numIndex index="1">ROADMAP</numIndex>
-									</numIndex>
-									<numIndex index="2" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeSatellite
-										</numIndex>
-										<numIndex index="1">SATELLITE</numIndex>
-									</numIndex>
-									<numIndex index="3" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeHybrid
-										</numIndex>
-										<numIndex index="1">HYBRID</numIndex>
-									</numIndex>
-									<numIndex index="4" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeTerrain
-										</numIndex>
-										<numIndex index="1">TERRAIN</numIndex>
-									</numIndex>
-									<numIndex index="5" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Basic
-										</numIndex>
-										<numIndex index="1">MapBox-BASIC</numIndex>
-									</numIndex>
-									<numIndex index="6" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Streets
-										</numIndex>
-										<numIndex index="1">MapBox-STREETS</numIndex>
-									</numIndex>
-									<numIndex index="7" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Bright
-										</numIndex>
-										<numIndex index="1">MapBox-BRIGHT</numIndex>
-									</numIndex>
-									<numIndex index="8" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Light
-										</numIndex>
-										<numIndex index="1">MapBox-LIGHT</numIndex>
-									</numIndex>
-									<numIndex index="9" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Dark
-										</numIndex>
-										<numIndex index="1">MapBox-DARK</numIndex>
-									</numIndex>
-									<numIndex index="10" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Satellite
-										</numIndex>
-										<numIndex index="1">MapBox-SATELLITE</numIndex>
-									</numIndex>
-								</items>
-							</config>
-						</TCEforms>
-					</settings.cbgmMapType>
-					<settings.cbgmNavigationControl>
-						<TCEforms>
-							<label>
-								LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.navigationControl
-							</label>
-							<config>
-								<type>select</type>
-								<default>DEFAULT</default>
-								<items type="array">
-									<numIndex index="0" type="array">
-										<numIndex index="0"></numIndex>
-										<numIndex index="1"></numIndex>
-									</numIndex>
-									<numIndex index="1" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.navigationControlDefault
-										</numIndex>
-										<numIndex index="1">DEFAULT</numIndex>
-									</numIndex>
-									<numIndex index="2" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.navigationControlSmall
-										</numIndex>
-										<numIndex index="1">SMALL</numIndex>
-									</numIndex>
-									<numIndex index="3" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.navigationControlZoomPan
-										</numIndex>
-										<numIndex index="1">ZOOM_PAN</numIndex>
-									</numIndex>
-									<numIndex index="4" type="array">
-										<numIndex index="0">
-											LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.navigationControlAndroid
-										</numIndex>
-										<numIndex index="1">ANDROID</numIndex>
-									</numIndex>
-								</items>
-							</config>
-						</TCEforms>
-					</settings.cbgmNavigationControl>
+    <meta>
+        <langDisable>1</langDisable>
+        <langChildren>0</langChildren>
+    </meta>
+    <sheets>
+        <sDEF>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.sheetLocation</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.cbgmIncludeJs>
+                        <TCEforms>
+                            <config>
+                                <type>user</type>
+                                <userFunc>Brinkert\Cbgooglemaps\Service\IncludeBeJavascript->includeCbGoogleMapsJavascript</userFunc>
+                                <renderType>jsLibrariesElement</renderType>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmIncludeJs>
+                    <settings.cbgmStreet>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.street</label>
+                            <config>
+                                <type>input</type>
+                                <size>40</size>
+                                <max>40</max>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmStreet>
+                    <settings.cbgmZip>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.zip</label>
+                            <config>
+                                <type>input</type>
+                                <size>10</size>
+                                <max>10</max>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmZip>
+                    <settings.cbgmCity>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.city</label>
+                            <config>
+                                <type>input</type>
+                                <size>40</size>
+                                <max>40</max>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmCity>
+                    <settings.cbgmCountry>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.country</label>
+                            <config>
+                                <type>input</type>
+                                <size>40</size>
+                                <max>60</max>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmCountry>
+                    <cbgmButtonGeocoding>
+                        <TCEforms>
+                            <label></label>
+                            <config>
+                                <type>user</type>
+                                <userFunc>Brinkert\Cbgooglemaps\Service\AddFlexformFields->addGeocodingButton</userFunc>
+                                <renderType>geoCodingButtonElement</renderType>
+                            </config>
+                        </TCEforms>
+                    </cbgmButtonGeocoding>
+                    <settings.cbgmLatitude>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.latitude</label>
+                            <config>
+                                <type>input</type>
+                                <size>25</size>
+                                <max>25</max>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmLatitude>
+                    <settings.cbgmLongitude>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.longitude</label>
+                            <config>
+                                <type>input</type>
+                                <size>25</size>
+                                <max>25</max>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmLongitude>
+                </el>
+            </ROOT>
+        </sDEF>
+        <s_displayproperties>
+            <ROOT>
+                <TCEforms>
+                    <sheetTitle>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.sheetDisplay</sheetTitle>
+                </TCEforms>
+                <type>array</type>
+                <el>
+                    <settings.cbgmDescription>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.description</label>
+                            <config>
+                                <type>text</type>
+                                <cols>50</cols>
+                                <rows>10</rows>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmDescription>
+                    <settings.cbgmAutoOpen>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.autoOpen</label>
+                            <config>
+                                <type>check</type>
+                                <default>0</default>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmAutoOpen>
+                    <settings.cbgmMapWidth>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapWidth</label>
+                            <config>
+                                <type>input</type>
+                                <size>4</size>
+                                <max>5</max>
+                                <eval>trim</eval>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmMapWidth>
+                    <settings.cbgmMapHeight>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapHeight</label>
+                            <config>
+                                <type>input</type>
+                                <size>4</size>
+                                <max>5</max>
+                                <eval>trim</eval>
+                                <default>250</default>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmMapHeight>
+                    <settings.cbgmScaleLevel>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.scaleLevel</label>
+                            <config>
+                                <type>input</type>
+                                <size>3</size>
+                                <eval>trim</eval>
+                                <max>3</max>
+                                <default>12</default>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmScaleLevel>
+                    <settings.cbgmMapType>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapType</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <default>ROADMAP</default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0"></numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeRoadmap</numIndex>
+                                        <numIndex index="1">ROADMAP</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeSatellite</numIndex>
+                                        <numIndex index="1">SATELLITE</numIndex>
+                                    </numIndex>
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeHybrid</numIndex>
+                                        <numIndex index="1">HYBRID</numIndex>
+                                    </numIndex>
+                                    <numIndex index="4" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeTerrain</numIndex>
+                                        <numIndex index="1">TERRAIN</numIndex>
+                                    </numIndex>
+                                    <numIndex index="5" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Basic</numIndex>
+                                        <numIndex index="1">MapBox-BASIC</numIndex>
+                                    </numIndex>
+                                    <numIndex index="6" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Streets</numIndex>
+                                        <numIndex index="1">MapBox-STREETS</numIndex>
+                                    </numIndex>
+                                    <numIndex index="7" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Bright</numIndex>
+                                        <numIndex index="1">MapBox-BRIGHT</numIndex>
+                                    </numIndex>
+                                    <numIndex index="8" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Light</numIndex>
+                                        <numIndex index="1">MapBox-LIGHT</numIndex>
+                                    </numIndex>
+                                    <numIndex index="9" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Dark</numIndex>
+                                        <numIndex index="1">MapBox-DARK</numIndex>
+                                    </numIndex>
+                                    <numIndex index="10" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.mapTypeMapbox.Satellite</numIndex>
+                                        <numIndex index="1">MapBox-SATELLITE</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmMapType>
+                    <settings.cbgmNavigationControl>
+                        <TCEforms>
+                            <label>LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.navigationControl</label>
+                            <config>
+                                <type>select</type>
+                                <renderType>selectSingle</renderType>
+                                <default>DEFAULT</default>
+                                <items type="array">
+                                    <numIndex index="0" type="array">
+                                        <numIndex index="0"></numIndex>
+                                        <numIndex index="1"></numIndex>
+                                    </numIndex>
+                                    <numIndex index="1" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.navigationControlDefault</numIndex>
+                                        <numIndex index="1">DEFAULT</numIndex>
+                                    </numIndex>
+                                    <numIndex index="2" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.navigationControlSmall</numIndex>
+                                        <numIndex index="1">SMALL</numIndex>
+                                    </numIndex>
+                                    <numIndex index="3" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.navigationControlZoomPan</numIndex>
+                                        <numIndex index="1">ZOOM_PAN</numIndex>
+                                    </numIndex>
+                                    <numIndex index="4" type="array">
+                                        <numIndex index="0">LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:label.navigationControlAndroid</numIndex>
+                                        <numIndex index="1">ANDROID</numIndex>
+                                    </numIndex>
+                                </items>
+                            </config>
+                        </TCEforms>
+                    </settings.cbgmNavigationControl>
 
-					<cbgmButtonGeocoding>
-						<TCEforms>
-							<label></label>
-							<config>
-								<type>user</type>
-								<userFunc>Brinkert\Cbgooglemaps\Service\AddFlexformFields->addPreviewButton</userFunc>
-							</config>
-						</TCEforms>
-					</cbgmButtonGeocoding>
-				</el>
-			</ROOT>
-		</s_displayproperties>
-	</sheets>
+                    <cbgmButtonGeocoding>
+                        <TCEforms>
+                            <label></label>
+                            <config>
+                                <type>user</type>
+                                <userFunc>Brinkert\Cbgooglemaps\Service\AddFlexformFields->addPreviewButton</userFunc>
+                                <renderType>previewButtonElement</renderType>
+                            </config>
+                        </TCEforms>
+                    </cbgmButtonGeocoding>
+                </el>
+            </ROOT>
+        </s_displayproperties>
+    </sheets>
 </T3DataStructure>

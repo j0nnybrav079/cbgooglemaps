@@ -2,24 +2,19 @@
 
 namespace Brinkert\Cbgooglemaps\Controller;
 
-use TYPO3\CMS\Core\Utility\ExtensionManagementUtility;
-use TYPO3\CMS\Core\Utility\GeneralUtility;
-use TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface;
-use TYPO3\CMS\Extbase\Mvc\Controller\ActionController;
-use TYPO3\CMS\Frontend\ContentObject\ContentObjectRenderer;
-
 /**
  * Class to extend the backend with a tca user field
- * @path 				Cbgooglemaps\Controller\MapController.php
- * @version				4.0: MapController.php,  02.07.2018
- * @copyright 			(c)2011-2018 Christian Brinkert
- * @author 				Christian Brinkert <christian.brinkert@googlemail.com>
+ * @package                Cbgooglemaps
+ * @path                Cbgooglemaps\Controller\MapController.php
+ * @version                4.0: MapController.php,  02.07.2018
+ * @copyright            (c)2011-2018 Christian Brinkert
+ * @author                Christian Brinkert <christian.brinkert@googlemail.com>
  */
-class MapController extends ActionController
+class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
     /**
-     * @var ConfigurationManagerInterface $configurationManager
+     * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager
      */
     protected $configurationManager;
     protected $ceData;
@@ -27,14 +22,16 @@ class MapController extends ActionController
     protected $cobj;
     protected $filePath;
 
+
     /**
      * Inject configuration manager
-     * @param ConfigurationManagerInterface $configurationManager
+     * @param \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager
      */
-    public function injectConfigurationManager(ConfigurationManagerInterface $configurationManager)
+    public function injectConfigurationManager(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager)
     {
         $this->configurationManager = $configurationManager;
     }
+
 
     /**
      * Do some global initialization
@@ -46,19 +43,18 @@ class MapController extends ActionController
 
         // get extension typoscript
         $this->settings = $this->configurationManager->getConfiguration(
-                            ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
-                            'Cbgooglemaps',
-                            'Quickgooglemap'
-        );
+            \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface::CONFIGURATION_TYPE_SETTINGS,
+            'Cbgooglemaps',
+            'Quickgooglemap');
 
         // set sitepath
-        $this->filePath = ExtensionManagementUtility::siteRelPath('cbgooglemaps');
+        $this->filePath = '/typo3conf/ext/cbgooglemaps/';
 
         // set content object renderer
-        $this->cobj = GeneralUtility::makeInstance(
-            ContentObjectRenderer::class
-        );
+        $this->cobj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
+            'TYPO3\\CMS\\Frontend\\ContentObject\\ContentObjectRenderer');
     }
+
 
     /**
      * Create map content element to the frontend
@@ -78,126 +74,123 @@ class MapController extends ActionController
         $this->view->assignMultiple($mapParameter);
     }
 
+
     /**
      * Build and return map parameter array, with defaults or ce specific values
      * @return array
      */
     private function getMapParameters()
     {
+
         return [
             // assign uid of current content element
             'contentId' => ((
-                             null != $this->ceData['uid']
-                             ? $this->ceData['uid']
-                             : rand(1, 999999)
-                           ) . '_' . $this->configurationManager->getContentObject()->parentRecord['data']['uid']),
+                null != $this->ceData['uid']
+                    ? $this->ceData['uid']
+                    : rand(1, 999999)
+                ) . '_' . $this->configurationManager->getContentObject()->parentRecord['data']['uid']),
             // map provider to build map: googleMaps or OpenStreetMap
             'mapProvider' => $this->settings['mapProvider'],
             // assign width and height of map
-            'width'     => null != $this->ceData['width']
-                           ? $this->ceData['width']
-                           : (
-                               0 < (int)$this->settings['cbgmMapWidth']
-                               ? $this->settings['cbgmMapWidth']
-                               : $this->settings['display']['width']
-                           ),
-            'height'    => null != $this->ceData['height']
-                           ? $this->ceData['height']
-                           : (
-                            0 < (int)$this->settings['cbgmMapHeight']
-                               ? $this->settings['cbgmMapHeight']
-                               : $this->settings['display']['height']
-                           ),
+            'width' => null != $this->ceData['width']
+                ? $this->ceData['width']
+                : (
+                0 < (int)$this->settings['cbgmMapWidth']
+                    ? $this->settings['cbgmMapWidth']
+                    : $this->settings['display']['width']
+                ),
+            'height' => null != $this->ceData['height']
+                ? $this->ceData['height']
+                : (
+                0 < (int)$this->settings['cbgmMapHeight']
+                    ? $this->settings['cbgmMapHeight']
+                    : $this->settings['display']['height']
+                ),
             // assign pin description text, to placed into info box
-            'infoText'  => urlencode(
-                             null != $this->ceData['infoText']
-                             ? $this->ceData['infoText']
-                             : (
-                                isset($this->settings['cbgmDescription'])
-                                ? $this->settings['cbgmDescription']
-                                : $this->settings['infoText']
-                             )
-                           ),
+            'infoText' => urlencode(
+                null != $this->ceData['infoText']
+                    ? $this->ceData['infoText']
+                    : (
+                isset($this->settings['cbgmDescription'])
+                    ? $this->settings['cbgmDescription']
+                    : $this->settings['infoText']
+                )
+            ),
             // assign auto open flag to the view
-            'openInfoBox' =>  isset($this->settings['cbgmAutoOpen'])
+            'openInfoBox' => isset($this->settings['cbgmAutoOpen'])
                 ? $this->settings['cbgmAutoOpen']
                 : $this->settings['infoTextOpen'],
             // assign deactivation of zooming by mousewheel
             'useScrollwheel' => $this->settings['options']['useScrollwheel'],
             // assign location (longitude and latitude) to the view
-            'latitude'  => null != $this->ceData['latitude']
-                           ? (float) $this->ceData['latitude']
-                           : (
-                                isset($this->settings['cbgmLatitude'])
-                                ? (float) $this->settings['cbgmLatitude']
-                                : (float) $this->settings['latitude']
-                           ),
-            'longitude'  => null != $this->ceData['longitude']
-                           ? (float) $this->ceData['longitude']
-                           : (
-                                isset($this->settings['cbgmLongitude'])
-                                ? (float) $this->settings['cbgmLongitude']
-                                : (float) $this->settings['longitude']
-                           ),
+            'latitude' => null != $this->ceData['latitude']
+                ? (float)$this->ceData['latitude']
+                : (
+                isset($this->settings['cbgmLatitude'])
+                    ? (float)$this->settings['cbgmLatitude']
+                    : (float)$this->settings['latitude']
+                ),
+            'longitude' => null != $this->ceData['longitude']
+                ? (float)$this->ceData['longitude']
+                : (
+                isset($this->settings['cbgmLongitude'])
+                    ? (float)$this->settings['cbgmLongitude']
+                    : (float)$this->settings['longitude']
+                ),
             // assign map zoom level to the view ,if given value is valid
-            'mapZoom'   => null != $this->ceData['zoom']
-                           ? (int) $this->ceData['zoom']
-                           : (
-                                0 <= (int) $this->settings['cbgmScaleLevel'] && !empty($this->settings['cbgmScaleLevel'])
-                                ? (int) $this->settings['cbgmScaleLevel']
-                                : (int) $this->settings['display']['zoom']
-                           ),
+            'mapZoom' => null != $this->ceData['zoom']
+                ? (int)$this->ceData['zoom']
+                : (
+                0 <= (int)$this->settings['cbgmScaleLevel'] && !empty($this->settings['cbgmScaleLevel'])
+                    ? (int)$this->settings['cbgmScaleLevel']
+                    : (int)$this->settings['display']['zoom']
+                ),
             // assign map type to the view, if given value is valid
-            'mapType'   => null != $this->ceData['mapType'] && in_array(
-                (string) $this->ceData['mapType'],
-                                preg_split("/[\s]*[,][\s]*/", $this->settings['valid']['mapTypes'])
-            )
-                           ? $this->ceData['mapType']
-                           : (
-                                in_array(
-                                    (string)$this->settings['cbgmMapType'],
-                                    preg_split("/[\s]*[,][\s]*/", $this->settings['valid']['mapTypes'])
-                                )
-                                ? $this->settings['cbgmMapType']
-                                : $this->settings['display']['mapType']
-                           ),
+            'mapType' => null != $this->ceData['mapType'] && in_array((string)$this->ceData['mapType'],
+                preg_split("/[\s]*[,][\s]*/", $this->settings['valid']['mapTypes']))
+                ? $this->ceData['mapType']
+                : (
+                in_array((string)$this->settings['cbgmMapType'],
+                    preg_split("/[\s]*[,][\s]*/", $this->settings['valid']['mapTypes']))
+                    ? $this->settings['cbgmMapType']
+                    : $this->settings['display']['mapType']
+                ),
             // assign navigation controls to the view
             'mapControl' => null != $this->ceData['navigationControl']
-                                 && in_array(
-                                     (string) $this->ceData['navigationControl'],
-                                    preg_split("/[\s]*[,][\s]*/", $this->settings['valid']['navigationControl'])
-                                 )
-                            ? $this->ceData['navigationControl']
-                            : (
-                                 in_array(
-                                     (string)$this->settings['cbgmNavigationControl'],
-                                     preg_split("/[\s]*[,][\s]*/", $this->settings['valid']['navigationControl'])
-                                 )
-                                 ? $this->settings['cbgmNavigationControl']
-                                 : $this->settings['display']['navigationControl']
-                            ),
+            && in_array((string)$this->ceData['navigationControl'],
+                preg_split("/[\s]*[,][\s]*/", $this->settings['valid']['navigationControl']))
+                ? $this->ceData['navigationControl']
+                : (
+                in_array((string)$this->settings['cbgmNavigationControl'],
+                    preg_split("/[\s]*[,][\s]*/", $this->settings['valid']['navigationControl']))
+                    ? $this->settings['cbgmNavigationControl']
+                    : $this->settings['display']['navigationControl']
+                ),
             // assign icon if given by constant or typoscript
-            'icon'      => null != $this->ceData['icon'] && file_exists(PATH_site . $this->ceData['icon'])
-                ? GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->ceData['icon']
+            'icon' => null != $this->ceData['icon'] && file_exists(PATH_site . $this->ceData['icon'])
+                ? \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->ceData['icon']
                 : (
                 !empty($this->settings['display']['icon']) && file_exists(PATH_site . $this->settings['display']['icon'])
-                    ? GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->settings['display']['icon']
+                    ? \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->settings['display']['icon']
                     : null
                 ),
             // add map styling default
-            'mapStyling'  => null,
+            'mapStyling' => null,
             // some braces?
-            'braceStart'  => '{',
-            'braceEnd'    => '}'
+            'braceStart' => '{',
+            'braceEnd' => '}'
         ];
     }
 
+
     /**
      * Fetch and return map styling from file if defined
+     * @param array $mapParameter
      * @return mixed
      */
     private function getMapStyling()
     {
+
         if (null != $this->ceData['mapStyling']
             && file_exists(PATH_site . $this->ceData['mapStyling'])) {
             // assign map styling from content element
@@ -205,14 +198,16 @@ class MapController extends ActionController
             $styling = file_get_contents(PATH_site . $this->ceData['mapStyling']);
 
             return !is_null(json_decode($styling)) ? $styling : null;
-        } elseif (!empty($this->settings['display']['mapStyling'])
+
+        } else if (!empty($this->settings['display']['mapStyling'])
             && file_exists(PATH_site . $this->settings['display']['mapStyling'])) {
             // assign map styling from typoscript file definition
 
             $styling = file_get_contents(PATH_site . $this->settings['display']['mapStyling']);
 
             return !is_null(json_decode($styling)) ? $styling : null;
-        } elseif (!empty($this->settings['display']['mapStyling'])
+
+        } else if (!empty($this->settings['display']['mapStyling'])
             && !is_null(json_decode($this->settings['display']['mapStyling']))) {
             // assign map styling from typoscript style definition
 
@@ -221,6 +216,7 @@ class MapController extends ActionController
 
         return null;
     }
+
 
     /**
      * Add some javascripts and css styles to the view
@@ -234,45 +230,51 @@ class MapController extends ActionController
 
             // build google maps uri
             $googleMapsUri = preg_match('/^http/', $this->settings['googleapi']['uri'])
-                           ? $this->settings['googleapi']['uri']
-                           : '/' . $this->filePath . $this->settings['googleapi']['uri'];
+                ? $this->settings['googleapi']['uri']
+                : $this->filePath . $this->settings['googleapi']['uri'];
 
             // add optional or required given key
-            if (!empty($this->settings['googleapi']['key'])) {
+            if (!empty($this->settings['googleapi']['key']))
                 $googleMapsUri .= '?key=' . $this->settings['googleapi']['key'];
-            }
 
             // add google api file
             $GLOBALS['TSFE']->additionalHeaderData['cbgooglemaps'] =
                 '<script src="' . $googleMapsUri . '" type="text/javascript"></script>';
-        } elseif ('MapBox' == $this->settings['mapProvider']) {
+
+
+        } else if ('MapBox' == $this->settings['mapProvider']) {
             // add mapbox js and css files
-            $mapboxJs  = preg_match('/^http/', $this->settings['mapboxapi']['js'])
-                       ? $this->settings['mapboxapi']['js']
-                       : '/' . $this->filePath . $this->settings['mapboxapi']['js'];
+            $mapboxJs = preg_match('/^http/', $this->settings['mapboxapi']['js'])
+                ? $this->settings['mapboxapi']['js']
+                : $this->filePath . $this->settings['mapboxapi']['js'];
 
             $mapboxCss = preg_match('/^http/', $this->settings['mapboxapi']['css'])
-                       ? $this->settings['mapboxapi']['css']
-                       : '/' . $this->filePath . $this->settings['mapboxapi']['css'];
+                ? $this->settings['mapboxapi']['css']
+                : $this->filePath . $this->settings['mapboxapi']['css'];
 
             $GLOBALS['TSFE']->additionalHeaderData['cbgooglemapsJs'] =
                 '<script src="' . $mapboxJs . '" type="text/javascript"></script>';
             $GLOBALS['TSFE']->additionalHeaderData['cbgooglemapsCss'] =
                 '<link href="' . $mapboxCss . '" type="text/css" rel="stylesheet" />';
+
+
         } else {
             // add leaflet js and css files
-            $osmJs  = preg_match('/^http/', $this->settings['osmapi']['js'])
+            $osmJs = preg_match('/^http/', $this->settings['osmapi']['js'])
                 ? $this->settings['osmapi']['js']
-                : '/' . $this->filePath . $this->settings['osmapi']['js'];
+                : $this->filePath . $this->settings['osmapi']['js'];
 
             $osmCss = preg_match('/^http/', $this->settings['osmapi']['css'])
                 ? $this->settings['osmapi']['css']
-                : '/' . $this->filePath . $this->settings['osmapi']['css'];
+                : $this->filePath . $this->settings['osmapi']['css'];
 
             $GLOBALS['TSFE']->additionalHeaderData['cbgooglemapsJs'] =
                 '<script src="' . $osmJs . '" type="text/javascript"></script>';
             $GLOBALS['TSFE']->additionalHeaderData['cbgooglemapsCss'] =
                 '<link href="' . $osmCss . '" type="text/css" rel="stylesheet" />';
+
         }
+
     }
+
 }
