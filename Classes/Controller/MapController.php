@@ -4,11 +4,11 @@ namespace Brinkert\Cbgooglemaps\Controller;
 
 /**
  * Class to extend the backend with a tca user field
- * @package                Cbgooglemaps
+ * @package             Cbgooglemaps
  * @path                Cbgooglemaps\Controller\MapController.php
- * @version                4.0: MapController.php,  02.07.2018
- * @copyright            (c)2011-2018 Christian Brinkert
- * @author                Christian Brinkert <christian.brinkert@googlemail.com>
+ * @version             5.0: MapController.php,  02.07.2018
+ * @copyright           (c)2011-2020 Christian Brinkert / Tobi
+ * @author              Christian Brinkert <christian.brinkert@googlemail.com>
  */
 class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
@@ -48,7 +48,7 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             'Quickgooglemap');
 
         // set sitepath
-        $this->filePath = '/typo3conf/ext/cbgooglemaps/';
+        $this->filePath = $this->request->getBaseUri() . '/typo3conf/ext/cbgooglemaps/';
 
         // set content object renderer
         $this->cobj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
