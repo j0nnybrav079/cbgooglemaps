@@ -17,7 +17,7 @@
   ],
   "license": ["GPL-2.0-or-later"],
   "require": {
-    "typo3/cms-core": "^8.7.13|| >=10.4.0 < 10.5.0"
+    "typo3/cms-core": "^8.7.13 || >=10.4.0 < 10.5.0 || ^11.1"
   },
   "autoload": {
     "psr-4": {
@@ -25,7 +25,6 @@
     }
   },
   "replace": {
-    "cbgooglemaps": "self.version",
     "typo3-ter/cbgooglemaps": "self.version"
   },
   "config": {
@@ -44,7 +43,8 @@
     },
     "typo3/cms": {
       "cms-package-dir": "{$vendor-dir}/typo3/cms",
-      "web-dir": ".Build/Web"
+      "web-dir": ".Build/Web",
+      "extension-key": "cbgooglemaps"
     }
   }
 }
