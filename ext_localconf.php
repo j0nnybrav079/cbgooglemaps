@@ -7,7 +7,7 @@ if (!defined('TYPO3_MODE')) {
     'Brinkert.cbgooglemaps',
     'Quickgooglemap',
     [
-        'Map' => 'index',
+        \Brinkert\Cbgooglemaps\Controller\MapController::class => 'index',
     ],
 
     // non-cacheable actions
