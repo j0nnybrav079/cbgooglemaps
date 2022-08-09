@@ -6,7 +6,7 @@ if (!defined('TYPO3_MODE')) {
 
 // register plugin
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::registerPlugin(
-	'Brinkert.cbgooglemaps',
+	'cbgooglemaps',
 	'Quickgooglemap',
 	'Quick map integration'
 );

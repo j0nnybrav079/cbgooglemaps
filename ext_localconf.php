@@ -4,7 +4,7 @@ if (!defined('TYPO3_MODE')) {
 }
 
 \TYPO3\CMS\Extbase\Utility\ExtensionUtility::configurePlugin(
-    'Brinkert.cbgooglemaps',
+    'cbgooglemaps',
     'Quickgooglemap',
     [
         \Brinkert\Cbgooglemaps\Controller\MapController::class => 'index',
