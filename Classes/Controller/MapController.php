@@ -228,7 +228,7 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 
             // add google api file
             $GLOBALS['TSFE']->additionalHeaderData['cbgooglemaps'] =
-                '<script src="' . $googleMapsUri . '" type="text/javascript"></script>';
+                '<script src="' . $googleMapsUri . '"></script>';
 
 
         } else if ('MapBox' == $this->settings['mapProvider']) {
@@ -242,9 +242,9 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 : $this->filePath . $this->settings['mapboxapi']['css'];
 
             $GLOBALS['TSFE']->additionalHeaderData['cbgooglemapsJs'] =
-                '<script src="' . $mapboxJs . '" type="text/javascript"></script>';
+                '<script src="' . $mapboxJs . '"></script>';
             $GLOBALS['TSFE']->additionalHeaderData['cbgooglemapsCss'] =
-                '<link href="' . $mapboxCss . '" type="text/css" rel="stylesheet" />';
+                '<link href="' . $mapboxCss . '" rel="stylesheet" />';
 
 
         } else {
@@ -258,9 +258,9 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 : $this->filePath . $this->settings['osmapi']['css'];
 
             $GLOBALS['TSFE']->additionalHeaderData['cbgooglemapsJs'] =
-                '<script src="' . $osmJs . '" type="text/javascript"></script>';
+                '<script src="' . $osmJs . '"></script>';
             $GLOBALS['TSFE']->additionalHeaderData['cbgooglemapsCss'] =
-                '<link href="' . $osmCss . '" type="text/css" rel="stylesheet" />';
+                '<link href="' . $osmCss . '" rel="stylesheet" />';
 
         }
 
