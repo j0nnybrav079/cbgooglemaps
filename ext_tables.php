@@ -12,23 +12,6 @@ if (!defined('TYPO3_MODE')) {
 );
 
 
-// register icon
-$iconRegistry = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
-    \TYPO3\CMS\Core\Imaging\IconRegistry::class
-);
-
-$iconRegistry->registerIcon(
-    'ce-default-icon',
-    \TYPO3\CMS\Core\Imaging\IconProvider\BitmapIconProvider::class,
-    ['source' => 'EXT:cbgooglemaps/Resources/Public/Icons/ce_wiz.svg']
-);
-
-// add plugin to the new content element list
-$TBE_MODULES_EXT['xMOD_db_new_content_el']['addElClasses']['Brinkert\Cbgooglemaps\Utility\Hook\ContentElementWizard'] =
-    \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::extPath('cbgooglemaps') .
-    'Classes/Utility/Hook/ContentElementWizard.php';
-
-
 // add static typoscripts
 \TYPO3\CMS\Core\Utility\ExtensionManagementUtility::addStaticFile(
 		'cbgooglemaps', 'Configuration/TypoScript', 'Quick Maps');
@@ -45,5 +28,3 @@ $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_addlist'][$pluginSignat
 
 // exclude some default fields, like: layout, select_key, pages and recursive
 $GLOBALS['TCA']['tt_content']['types']['list']['subtypes_excludelist'][$pluginSignature] = 'layout,select_key,pages,recursive';
-
-
