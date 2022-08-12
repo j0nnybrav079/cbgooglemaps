@@ -15,7 +15,6 @@
                         <TCEforms>
                             <config>
                                 <type>user</type>
-                                <userFunc>Brinkert\Cbgooglemaps\Service\IncludeBeJavascript->includeCbGoogleMapsJavascript</userFunc>
                                 <renderType>jsLibrariesElement</renderType>
                             </config>
                         </TCEforms>
@@ -69,7 +68,6 @@
                             <label></label>
                             <config>
                                 <type>user</type>
-                                <userFunc>Brinkert\Cbgooglemaps\Service\AddFlexformFields->addGeocodingButton</userFunc>
                                 <renderType>geoCodingButtonElement</renderType>
                             </config>
                         </TCEforms>
@@ -255,7 +253,6 @@
                             <label></label>
                             <config>
                                 <type>user</type>
-                                <userFunc>Brinkert\Cbgooglemaps\Service\AddFlexformFields->addPreviewButton</userFunc>
                                 <renderType>previewButtonElement</renderType>
                             </config>
                         </TCEforms>
