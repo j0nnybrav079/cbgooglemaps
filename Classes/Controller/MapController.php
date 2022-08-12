@@ -13,24 +13,10 @@ namespace Brinkert\Cbgooglemaps\Controller;
 class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
 {
 
-    /**
-     * @var \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager
-     */
-    protected $configurationManager;
     protected $ceData;
     protected $settings;
     protected $cobj;
     protected $filePath;
-
-
-    /**
-     * Inject configuration manager
-     * @param \TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager
-     */
-    public function injectConfigurationManager(\TYPO3\CMS\Extbase\Configuration\ConfigurationManagerInterface $configurationManager)
-    {
-        $this->configurationManager = $configurationManager;
-    }
 
 
     /**
@@ -48,7 +34,10 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             'Quickgooglemap');
 
         // set sitepath
-        $this->filePath = $this->request->getBaseUri() . '/typo3conf/ext/cbgooglemaps/';
+        $request = $GLOBALS['TYPO3_REQUEST'];
+        $normalizedParams = $request->getAttribute('normalizedParams');
+        $baseUri = $normalizedParams->getSiteUrl();
+        $this->filePath = $baseUri . '/typo3conf/ext/cbgooglemaps/';
 
         // set content object renderer
         $this->cobj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance(
@@ -167,10 +156,10 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                     : $this->settings['display']['navigationControl']
                 ),
             // assign icon if given by constant or typoscript
-            'icon' => null != $this->ceData['icon'] && file_exists(PATH_site . $this->ceData['icon'])
+            'icon' => null != $this->ceData['icon'] && file_exists(Environment::getPublicPath() . '/' . $this->ceData['icon'])
                 ? \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->ceData['icon']
                 : (
-                !empty($this->settings['display']['icon']) && file_exists(PATH_site . $this->settings['display']['icon'])
+                    !empty($this->settings['display']['icon']) && file_exists(Environment::getPublicPath() . '/' . $this->settings['display']['icon'])
                     ? \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->settings['display']['icon']
                     : null
                 ),
@@ -192,18 +181,18 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
     {
 
         if (null != $this->ceData['mapStyling']
-            && file_exists(PATH_site . $this->ceData['mapStyling'])) {
+            && file_exists(Environment::getPublicPath() . '/' . $this->ceData['mapStyling'])) {
             // assign map styling from content element
 
-            $styling = file_get_contents(PATH_site . $this->ceData['mapStyling']);
+                $styling = file_get_contents(Environment::getPublicPath() . '/' . $this->ceData['mapStyling']);
 
             return !is_null(json_decode($styling)) ? $styling : null;
 
         } else if (!empty($this->settings['display']['mapStyling'])
-            && file_exists(PATH_site . $this->settings['display']['mapStyling'])) {
+            && file_exists(Environment::getPublicPath() . '/' . $this->settings['display']['mapStyling'])) {
             // assign map styling from typoscript file definition
 
-            $styling = file_get_contents(PATH_site . $this->settings['display']['mapStyling']);
+                $styling = file_get_contents(Environment::getPublicPath() . '/' . $this->settings['display']['mapStyling']);
 
             return !is_null(json_decode($styling)) ? $styling : null;
 

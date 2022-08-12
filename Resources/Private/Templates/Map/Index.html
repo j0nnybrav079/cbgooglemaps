@@ -1,4 +1,4 @@
-
+<html xmlns:f="http://typo3.org/ns/TYPO3/CMS/Fluid/ViewHelpers" data-namespace-typo3-fluid="true">
 <div class="cbQuickGoogleMap">
     <f:if condition="{width}">
         <f:then>
@@ -14,7 +14,7 @@
 
 <f:if condition="{mapProvider} == 'Google'">
 
-    <script type="text/javascript" charset="utf-8">
+    <script>
         window.addEventListener("load", function(event) {braceStart}
 
         var mapType_{contentId} = '{mapType}';
@@ -100,7 +100,7 @@
 
 <f:if condition="{mapProvider} == 'MapBox'">
 
-    <script type="text/javascript" charset="utf-8">
+    <script>
         window.addEventListener("load", function(event) {braceStart}
 
         var mapType_{contentId} = '{mapType}';
@@ -192,7 +192,7 @@
 
 <f:if condition="{mapProvider} == 'OpenStreetMap'">
 
-    <script type="text/javascript" charset="utf-8">
+    <script>
         window.addEventListener("load", function(event) {braceStart}
 
         // set map
@@ -269,3 +269,4 @@
     </script>
 
 </f:if>
+</html>
