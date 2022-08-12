@@ -40,7 +40,7 @@ class IncludeBeJavascript{
     public function includeCbGoogleMapsJavascript($config){
 
         // fetch current extension typoscript configuration
-        $sysPageObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Frontend\\Page\\PageRepository');
+        $sysPageObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\CMS\Core\Domain\Repository\PageRepository');
         $TSObj = \TYPO3\CMS\Core\Utility\GeneralUtility::makeInstance('TYPO3\\CMS\\Core\\TypoScript\\TemplateService');
         $TSObj->tt_track = 0;
         $TSObj->init();
