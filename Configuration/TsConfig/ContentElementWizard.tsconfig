@@ -1,0 +1,17 @@
+mod.wizards {
+    newContentElement.wizardItems {
+        plugins {
+            elements {
+                cbgooglemaps {
+                    iconIdentifier = ce-default-icon
+                    title = LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:pluginWizardTitle
+                    description = LLL:EXT:cbgooglemaps/Resources/Private/Language/locallang.xlf:pluginWizardDescription
+                    tt_content_defValues {
+                        CType = list
+                        list_type = cbgooglemaps_quickgooglemap
+                    }
+                }
+            }
+        }
+    }
+}
