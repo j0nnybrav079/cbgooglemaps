@@ -2,6 +2,8 @@
 
 namespace Brinkert\Cbgooglemaps\Controller;
 
+use TYPO3\CMS\Core\Core\Environment;
+
 /**
  * Class to extend the backend with a tca user field
  * @package             Cbgooglemaps
@@ -160,8 +162,8 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
                 ? \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->ceData['icon']
                 : (
                     !empty($this->settings['display']['icon']) && file_exists(Environment::getPublicPath() . '/' . $this->settings['display']['icon'])
-                    ? \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->settings['display']['icon']
-                    : null
+                        ? \TYPO3\CMS\Core\Utility\GeneralUtility::getIndpEnv('TYPO3_REQUEST_HOST') . '/' . $this->settings['display']['icon']
+                        : null
                 ),
             // add map styling default
             'mapStyling' => null,
@@ -184,16 +186,14 @@ class MapController extends \TYPO3\CMS\Extbase\Mvc\Controller\ActionController
             && file_exists(Environment::getPublicPath() . '/' . $this->ceData['mapStyling'])) {
             // assign map styling from content element
 
-                $styling = file_get_contents(Environment::getPublicPath() . '/' . $this->ceData['mapStyling']);
-
+            $styling = file_get_contents(Environment::getPublicPath() . '/' . $this->ceData['mapStyling']);
             return !is_null(json_decode($styling)) ? $styling : null;
 
         } else if (!empty($this->settings['display']['mapStyling'])
             && file_exists(Environment::getPublicPath() . '/' . $this->settings['display']['mapStyling'])) {
             // assign map styling from typoscript file definition
 
-                $styling = file_get_contents(Environment::getPublicPath() . '/' . $this->settings['display']['mapStyling']);
-
+            $styling = file_get_contents(Environment::getPublicPath() . '/' . $this->settings['display']['mapStyling']);
             return !is_null(json_decode($styling)) ? $styling : null;
 
         } else if (!empty($this->settings['display']['mapStyling'])
